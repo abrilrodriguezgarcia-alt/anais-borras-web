@@ -1,0 +1,64 @@
+{
+  "name": "Anaïs Borràs",
+  "nav": [
+    {
+      "label": "Sobre mi",
+      "href": "/sobre-mi"
+    },
+    {
+      "label": "Projectes",
+      "href": "/projectes"
+    },
+    {
+      "label": "Articles",
+      "href": "/articles"
+    },
+    {
+      "label": "Contacte",
+      "href": "/contacte"
+    }
+  ],
+  "socials": [
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/anaisborras/"
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "url": "https://www.tiktok.com/@anaisborras"
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "url": "https://www.youtube.com/@anaisborras"
+    },
+    {
+      "id": "spotify",
+      "label": "Spotify",
+      "url": "https://open.spotify.com/show/5TABfhIAJVMkbNLWaA2Z6x"
+    }
+  ],
+  "topics": [
+    "Filosofia",
+    "Actualitat",
+    "Feminisme",
+    "Cultura",
+    "LGTBIQ+"
+  ],
+  "legal": [
+    {
+      "label": "Avís legal",
+      "href": "/avis-legal"
+    },
+    {
+      "label": "Privacitat",
+      "href": "/privacitat"
+    },
+    {
+      "label": "Cookies",
+      "href": "/cookies"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+:root {
+  --ink: #111111;
+  --paper: #f4f1eb;
+  --lavender: #a79cef;
+  --violet: #7255ff;
+  --pink: #f31372;
+  --muted: #6b6966;
+
+  /* Violeta una mica més fosc per a text petit sobre paper (4,7:1; #7255FF dona 4,2:1). */
+  --violet-text: #6a4bf5;
+
+  --paper-deep: #e9e4d9;
+  --lavender-soft: #d6d0f6;
+  --card-bg: #faf8f4;
+  --line: rgba(17, 17, 17, 0.12);
+  --line-strong: rgba(17, 17, 17, 0.28);
+
+  --font-display: 'Newsreader', serif;
+  --font-sans: 'Inter', sans-serif;
+
+  --container: 1520px;
+  --gutter: clamp(1.25rem, 4.5vw, 4.5rem);
+  --section-space: clamp(4rem, 8vw, 8rem);
+}

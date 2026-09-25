@@ -1,0 +1,223 @@
+/* Hero: la foto ocupa la dreta i entra cap al centre; es fon amb el paper per alpha (mask-image),
+   sense cap capa pintada a sobre. Capes: paper (0) → foto amb mask (1) → text i categories (3). */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__inner {
+  position: relative;
+  min-height: clamp(42rem, 52vw, 47.5rem);
+  display: flex;
+  align-items: center;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+  padding-block: clamp(2.5rem, 4vw, 4.5rem);
+}
+
+.hero__eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--violet);
+}
+
+.hero__title {
+  margin-top: clamp(1.25rem, 2vw, 2rem);
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 8.5vw, 9.5rem);
+  font-weight: 500;
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.hero__lead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  margin-top: clamp(1.75rem, 3vw, 3rem);
+}
+
+.hero__claim {
+  max-width: 21ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.1vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.hero__claim em {
+  font-style: italic;
+}
+
+.hero__topics {
+  flex: none;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 2.1;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.hero__topics::before {
+  content: '';
+  display: block;
+  width: 1.75rem;
+  height: 1px;
+  margin-bottom: 0.75rem;
+  background: var(--ink);
+}
+
+.hero__cta {
+  margin-top: clamp(1.75rem, 3vw, 3rem);
+}
+
+.hero__media {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 31%;
+  margin: 0;
+  overflow: hidden;
+  /* Fade horitzontal per alpha: paper net fins ~38% del hero, foto al 100% cap al 56%, abans de la cara. */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 9%,
+    rgba(0, 0, 0, 0.1) 14%,
+    rgba(0, 0, 0, 0.3) 19%,
+    rgba(0, 0, 0, 0.58) 24%,
+    rgba(0, 0, 0, 0.84) 30%,
+    #000 36%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 9%,
+    rgba(0, 0, 0, 0.1) 14%,
+    rgba(0, 0, 0, 0.3) 19%,
+    rgba(0, 0, 0, 0.58) 24%,
+    rgba(0, 0, 0, 0.84) 30%,
+    #000 36%,
+    #000 100%
+  );
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Cap, tors i braços; l'amplada de la caixa fixa l'escala, només compta l'eix vertical. */
+  object-position: 50% 52%;
+  /* Mirall visual perquè la mirada vagi cap al text; el fitxer original queda intacte.
+     Només afecta l'<img>, no l'anotació ni cap altre element superposat. */
+  transform: scaleX(-1);
+}
+
+.hero__note {
+  position: absolute;
+  z-index: 4;
+  top: clamp(1.5rem, 4vw, 3.5rem);
+  right: clamp(1.5rem, 4vw, 3.5rem);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.15;
+  text-align: left;
+  color: rgba(244, 241, 235, 0.55);
+  transform: rotate(-4deg);
+}
+
+/* Entre tauleta i portàtil petit: les categories passen sota el claim. */
+@media (max-width: 1199px) {
+  .hero__content {
+    width: 58%;
+  }
+
+  .hero__lead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .hero__topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
+  }
+
+  .hero__topics::before {
+    display: none;
+  }
+}
+
+/* Tauleta i mòbil: text, foto, categories (ordre recomanat). */
+@media (max-width: 900px) {
+  .hero__inner {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding-top: clamp(2rem, 6vw, 3.5rem);
+    padding-bottom: 2rem;
+  }
+
+  .hero__content,
+  .hero__lead {
+    display: contents;
+  }
+
+  .hero__eyebrow { order: 1; }
+  .hero__title { order: 2; margin-top: 1.5rem; font-size: clamp(3.75rem, 17vw, 7rem); }
+  .hero__claim { order: 3; margin-top: 1.5rem; max-width: 24ch; font-size: clamp(1.5rem, 5.5vw, 2rem); }
+  .hero__cta { order: 4; margin-top: 1.75rem; }
+  .hero__media {
+    position: relative;
+    order: 5;
+    left: auto;
+    margin-top: 2.5rem;
+    aspect-ratio: 4 / 5;
+    margin-inline: calc(var(--gutter) * -1);
+    /* Mòbil: fade vertical curt a dalt de la foto; no es replica el mask lateral. */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 16%);
+  }
+
+  /* L'anotació surt de la zona del fade perquè es llegeixi sobre el lavanda. */
+  .hero__note { top: 22%; }
+
+  .hero__topics {
+    order: 6;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
+    margin-top: 1.5rem;
+    font-size: 0.6875rem;
+  }
+
+  .hero__topics::before {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .hero__media { aspect-ratio: 4 / 3; }
+  .hero__img { object-position: 50% 48%; }
+}

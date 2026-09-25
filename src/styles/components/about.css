@@ -1,0 +1,90 @@
+.about {
+  padding-block: 0 var(--section-space);
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: start;
+  gap: 2.5rem clamp(2rem, 4vw, 5rem);
+  padding-top: var(--section-space);
+  border-top: 1px solid var(--line);
+}
+
+.about__title {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 3.4vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.about__text {
+  display: grid;
+  gap: 1.1rem;
+  padding-top: 2.25rem;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.about__cta {
+  justify-self: start;
+  margin-top: 0.75rem;
+  color: var(--violet-text);
+  border-color: var(--violet-text);
+}
+
+.about__cta:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.about__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.about__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Retrat vertical retallat en horitzontal: enquadrament centrat a la cara. */
+  object-position: 50% 8%;
+  filter: grayscale(1) contrast(1.03);
+}
+
+/* Tauleta: titular i bio a l'esquerra, retrat a la dreta. */
+@media (max-width: 1099px) {
+  .about__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'heading media'
+      'text media';
+    align-items: start;
+  }
+
+  .about__heading { grid-area: heading; }
+  .about__text { grid-area: text; padding-top: 0; }
+  .about__media { grid-area: media; aspect-ratio: 4 / 5; }
+  .about__img { object-position: 50% 12%; }
+}
+
+/* Mòbil: SOBRE MI, titular, bio, CTA, foto (a tot l'ample). */
+@media (max-width: 699px) {
+  .about__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .about__media {
+    aspect-ratio: 4 / 3;
+    margin-top: 0.75rem;
+  }
+
+  .about__img { object-position: 50% 8%; }
+}

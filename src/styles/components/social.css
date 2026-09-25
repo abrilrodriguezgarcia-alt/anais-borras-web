@@ -1,0 +1,65 @@
+/* La capçalera (.social__head, __title, __intro, __all) comparteix estils amb articles.css. */
+.social {
+  padding-block: 0 var(--section-space);
+}
+
+.social__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.2vw, 1.25rem);
+}
+
+.social__link {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.social__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.social__link:hover .social__img {
+  transform: scale(1.015);
+}
+
+.social__link:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Icona discreta que indica el tipus de peça (Reel / publicació amb diverses imatges). */
+.social__type {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: rgba(17, 17, 17, 0.72);
+  color: #fff;
+  transition: background-color 300ms ease;
+}
+
+.social__link:hover .social__type,
+.social__link:focus-visible .social__type {
+  background: var(--violet);
+}
+
+@media (max-width: 1099px) {
+  .social__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599px) {
+  .social__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}

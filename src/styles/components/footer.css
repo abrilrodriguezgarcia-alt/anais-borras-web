@@ -1,0 +1,81 @@
+.site-footer {
+  padding-block: clamp(3rem, 5vw, 4.5rem) 2rem;
+  background: var(--paper);
+}
+
+.site-footer__main {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  column-gap: clamp(2rem, 7vw, 8rem);
+}
+
+.site-footer__brand {
+  font-size: 1.5rem;
+}
+
+.footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 clamp(1.5rem, 3vw, 3rem);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  border-bottom: 1px solid transparent;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.footer__link:hover {
+  color: var(--violet-text);
+  border-color: currentColor;
+}
+
+@media (max-width: 899px) {
+  .site-footer__main {
+    grid-template-columns: 1fr;
+    row-gap: 1.25rem;
+  }
+
+  /* header.css assigna grid-areas a .brand i .socials en mòbil; al footer no s'apliquen. */
+  .site-footer__brand,
+  .site-footer__socials {
+    grid-area: auto;
+  }
+
+  .site-footer__socials {
+    margin: 0 0 0 -0.75rem;
+  }
+
+  /* Mòbil: marca, navegació, xarxes, legals i copyright. */
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+  }
+
+  .site-footer__copy {
+    order: 2;
+  }
+}

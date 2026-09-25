@@ -1,0 +1,62 @@
+[
+  {
+    "type": "post",
+    "url": "https://www.instagram.com/anaisborras/p/DUYrzLJjMVf/",
+    "instagramId": "DUYrzLJjMVf",
+    "thumbnail": "/images/social/instagram-01.webp",
+    "width": 512,
+    "height": 640,
+    "title": "Per fi s'estrena feminismeZ",
+    "alt": "Anaïs Borràs estirada sobre un fons lila amb estrelles, amb el text «feminisme amb Anaïs Borràs»."
+  },
+  {
+    "type": "reel",
+    "url": "https://www.instagram.com/anaisborras/reel/DdhEAAqsrzN/",
+    "instagramId": "DdhEAAqsrzN",
+    "thumbnail": "/images/social/instagram-02.webp",
+    "width": 360,
+    "height": 640,
+    "title": "Una mica de reflexió de diumenge sobre l'anunci de la Sydney Sweeney",
+    "alt": "Portada d'un Reel sobre l'anunci de Sydney Sweeney, amb un text sobre la intersecció entre patriarcat i capitalisme."
+  },
+  {
+    "type": "carousel",
+    "url": "https://www.instagram.com/anaisborras/p/DdMeWgojLBO/",
+    "instagramId": "DdMeWgojLBO",
+    "thumbnail": "/images/social/instagram-03.webp",
+    "width": 480,
+    "height": 640,
+    "title": "els primers dies a nyc",
+    "alt": "Anaïs Borràs asseguda sobre una estructura metàl·lica, amb els gratacels de Nova York al fons."
+  },
+  {
+    "type": "reel",
+    "url": "https://www.instagram.com/anaisborras/reel/DcngZ2NsTxa/",
+    "instagramId": "DcngZ2NsTxa",
+    "thumbnail": "/images/social/instagram-04.webp",
+    "width": 360,
+    "height": 640,
+    "title": "Sobre «Serena Joy», la nova cançó de l'Olivia Rodrigo",
+    "alt": "Anaïs Borràs parlant a càmera davant d'una prestatgeria, amb el text «Si els ho fan a elles, també t'ho faran a tu»."
+  },
+  {
+    "type": "reel",
+    "url": "https://www.instagram.com/anaisborras/reel/DdjNq-nspBe/",
+    "instagramId": "DdjNq-nspBe",
+    "thumbnail": "/images/social/instagram-05.webp",
+    "width": 360,
+    "height": 640,
+    "title": "Lena Dunham és mare! · Lady Gaga i Michael Polansky",
+    "alt": "Captura de dos titulars de premsa en anglès sobre Lena Dunham i Lady Gaga, sobre un fons violeta."
+  },
+  {
+    "type": "carousel",
+    "url": "https://www.instagram.com/anaisborras/p/Ddes42KkZBi/",
+    "instagramId": "Ddes42KkZBi",
+    "thumbnail": "/images/social/instagram-06.webp",
+    "width": 513,
+    "height": 640,
+    "title": "i els últims dies a nyc",
+    "alt": "Anaïs Borràs somrient de nit en un carrer de Nova York amb pantalles i llums de neó."
+  }
+]

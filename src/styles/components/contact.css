@@ -1,0 +1,41 @@
+.contact {
+  background: var(--lavender);
+  color: var(--ink);
+}
+
+.contact__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr) 15.6rem;
+  align-items: center;
+  gap: 2rem clamp(2rem, 5vw, 6rem);
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.contact__title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7.5rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.contact__text {
+  max-width: 30rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.contact__cta {
+  justify-self: end;
+}
+
+@media (max-width: 999px) {
+  .contact__inner {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .contact__cta {
+    justify-self: start;
+  }
+}

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anaïs Borràs — Periodista, comunicadora i creadora de contingut</title>
+    <meta
+      name="description"
+      content="Filosofia, actualitat i cultura per mirar una mica més enllà del titular. Web d'Anaïs Borràs, periodista, comunicadora i creadora de contingut."
+    />
+    <meta name="theme-color" content="#F4F1EB" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap"
+    />
+    <link rel="preload" as="image" href="/src/assets/images/anais-hero-1400.jpg" imagesrcset="/src/assets/images/anais-hero-800.jpg 800w, /src/assets/images/anais-hero-1400.jpg 1400w, /src/assets/images/anais-hero-2000.jpg 2000w" imagesizes="(min-width: 901px) 69vw, 100vw" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contingut">Salta al contingut</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="/" aria-label="Anaïs Borràs — inici">
+          <span class="brand__line">Anaïs</span>
+          <span class="brand__line">Borràs</span>
+        </a>
+        <nav class="nav" aria-label="Navegació principal">
+          <ul class="nav__list">
+            <!-- @slot:nav -->
+          </ul>
+        </nav>
+        <ul class="socials" aria-label="Xarxes socials">
+          <!-- @slot:socials -->
+        </ul>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <p class="eyebrow hero__eyebrow">Filòsofa · Periodista</p>
+            <h1 class="hero__title" id="hero-title">Anaïs<br />Borràs</h1>
+            <div class="hero__lead">
+              <p class="hero__claim">
+                Filosofia, actualitat i cultura per mirar <em>una mica més enllà</em> del titular.
+              </p>
+              <ul class="hero__topics" aria-label="Àmbits de treball">
+                <!-- @slot:topics -->
+              </ul>
+            </div>
+            <a class="button hero__cta" href="#projectes">
+              Coneix la meva feina
+              <svg class="arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+          </div>
+
+          <figure class="hero__media">
+            <img
+              class="hero__img"
+              src="/src/assets/images/anais-hero-1400.jpg"
+              srcset="/src/assets/images/anais-hero-800.jpg 800w, /src/assets/images/anais-hero-1400.jpg 1400w, /src/assets/images/anais-hero-2000.jpg 2000w"
+              sizes="(min-width: 901px) 69vw, 100vw"
+              width="800"
+              height="1200"
+              alt="Retrat d'Anaïs Borràs estirada sobre un fons lavanda, vestida de negre, mirant de reüll."
+              fetchpriority="high"
+            />
+            <!-- TODO: tipografia manuscrita definitiva; de moment Newsreader Italic. Còpia pendent d'aprovació. -->
+            <p class="hero__note">Pensar<br />per entendre<br />millor el món</p>
+          </figure>
+        </div>
+      </section>
+
+      <section class="partners" aria-labelledby="partners-title">
+        <div class="container partners__inner">
+          <h2 class="partners__label" id="partners-title">He col·laborat amb</h2>
+          <ul class="partners__list">
+            <!-- @slot:partners -->
+          </ul>
+        </div>
+      </section>
+
+      <section class="projects" id="projectes" aria-labelledby="projects-title">
+        <div class="container">
+          <header class="projects__head">
+            <div class="projects__heading">
+              <p class="eyebrow">El que faig</p>
+              <h2 class="projects__title" id="projects-title">Projectes<br />destacats</h2>
+            </div>
+            <div class="projects__intro">
+              <p>
+                Periodisme, pòdcast, ràdio, creació de contingut i moderacions per connectar filosofia, actualitat i
+                cultura contemporània.
+              </p>
+              <p>Una mirada crítica i feminista per entendre millor el present.</p>
+            </div>
+            <a class="link-arrow projects__all" href="/projectes">
+              Veure tots els projectes
+              <svg class="arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+          </header>
+
+          <ul class="projects__grid">
+            <!-- @slot:projects -->
+          </ul>
+        </div>
+      </section>
+
+      <section class="articles" id="articles" aria-labelledby="articles-title">
+        <div class="container">
+          <header class="articles__head">
+            <div class="articles__heading">
+              <p class="eyebrow">Els meus textos</p>
+              <h2 class="articles__title" id="articles-title">Articles<br />destacats</h2>
+            </div>
+            <div class="articles__intro">
+              <p>Anàlisi, entrevistes i peces d'actualitat i cultura escrites amb una mirada crítica.</p>
+            </div>
+            <a class="link-arrow articles__all" href="/articles">
+              Veure més articles
+              <svg class="arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+          </header>
+
+          <ul class="articles__grid">
+            <!-- @slot:featuredArticles -->
+          </ul>
+        </div>
+      </section>
+
+      <section class="videos" id="videos" aria-labelledby="videos-title">
+        <div class="container">
+          <header class="videos__head">
+            <div class="videos__heading">
+              <p class="eyebrow">Vídeos destacats</p>
+              <h2 class="videos__title" id="videos-title">FeminismeZ</h2>
+            </div>
+            <div class="videos__intro">
+              <!-- TODO: copy provisional, pendent de validació textual amb Anaïs. -->
+              <p>El meu pòdcast i canal de YouTube on parlem de feminismes, cultura, salut mental i tot allò que ens travessa.</p>
+            </div>
+            <a class="link-arrow videos__all" href="/projectes#feminismez">
+              Veure tots els vídeos
+              <svg class="arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+          </header>
+
+          <ul class="videos__grid">
+            <!-- @slot:videos -->
+          </ul>
+        </div>
+      </section>
+
+      <section class="social" id="xarxa" aria-labelledby="social-title">
+        <div class="container">
+          <header class="social__head">
+            <div class="social__heading">
+              <p class="eyebrow">També a Instagram</p>
+              <h2 class="social__title" id="social-title">A la xarxa</h2>
+            </div>
+            <div class="social__intro">
+              <!-- TODO: copy provisional, pendent de validació amb Anaïs. -->
+              <p>Reflexions, fragments del dia a dia, recomanacions i contingut que neix a xarxes.</p>
+            </div>
+            <a class="link-arrow social__all" href="<!-- @slot:instagramUrl -->" target="_blank" rel="noopener noreferrer">
+              Veure Instagram
+              <svg class="arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+          </header>
+
+          <ul class="social__grid">
+            <!-- @slot:instagram -->
+          </ul>
+        </div>
+      </section>
+
+      <section class="about" id="sobre-mi" aria-labelledby="about-title">
+        <div class="container about__inner">
+          <div class="about__heading">
+            <p class="eyebrow">Sobre mi</p>
+            <h2 class="about__title" id="about-title">Periodista,<br />comunicadora<br />i creadora de contingut</h2>
+          </div>
+
+          <div class="about__text">
+            <!-- TODO: validar copy amb Anaïs. Bio provisional; no és una cita textual seva. -->
+            <p>
+              Soc l'Anaïs Borràs, periodista i comunicadora. M'agrada connectar filosofia, actualitat, cultura i
+              feminismes per obrir converses que ens ajudin a entendre millor el món i imaginar-ne d'altres.
+            </p>
+            <p>Creo contingut, escric, modero, faig ràdio i, sobretot, intento fer preguntes que importen.</p>
+            <a class="link-arrow about__cta" href="/sobre-mi">
+              Coneix més sobre mi
+              <svg class="arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+          </div>
+
+          <figure class="about__media">
+            <!-- TODO: retrat provisional (IMG_7253.jpg, tractat en blanc i negre via CSS); confirmar amb Anaïs. -->
+            <img
+              class="about__img"
+              src="/src/assets/images/anais-about-1400.jpg"
+              srcset="/src/assets/images/anais-about-800.jpg 800w, /src/assets/images/anais-about-1400.jpg 1400w"
+              sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 100vw"
+              width="1400"
+              height="2100"
+              alt="Retrat en blanc i negre d'Anaïs Borràs, mig cos, amb americana, mirant a càmera."
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="contact" id="contacte" aria-labelledby="contact-title">
+        <div class="container contact__inner">
+          <h2 class="contact__title" id="contact-title">Parlem?</h2>
+          <p class="contact__text">Per a col·laboracions, entrevistes,<br />moderacions o projectes, escriu-me.</p>
+          <a class="button button--ink contact__cta" href="/contacte">
+            Contactar
+            <svg class="arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <a class="brand site-footer__brand" href="/" aria-label="Anaïs Borràs — inici">
+            <span class="brand__line">Anaïs</span>
+            <span class="brand__line">Borràs</span>
+          </a>
+          <nav class="site-footer__nav" aria-label="Navegació del peu de pàgina">
+            <ul class="footer__list">
+              <!-- @slot:nav -->
+            </ul>
+          </nav>
+          <ul class="socials site-footer__socials" aria-label="Xarxes socials">
+            <!-- @slot:socials -->
+          </ul>
+        </div>
+        <div class="site-footer__bottom">
+          <ul class="footer__legal" aria-label="Informació legal">
+            <!-- @slot:legal -->
+          </ul>
+          <p class="site-footer__copy">© <!-- @slot:year --> Anaïs Borràs. Tots els drets reservats.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

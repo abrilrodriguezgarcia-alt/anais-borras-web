@@ -1,0 +1,193 @@
+/* La capçalera de secció (__head, __title, __intro, __all) és compartida amb Vídeos destacats i A la xarxa. */
+.articles {
+  padding-block: 0 var(--section-space);
+}
+
+.articles__head,
+.videos__head,
+.social__head {
+  display: grid;
+  /* Tercera columna amb l'ample del CTA de Projectes perquè les introduccions quedin alineades. */
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr) 15.6rem;
+  align-items: end;
+  gap: 2rem clamp(2rem, 5vw, 6rem);
+  padding-top: var(--section-space);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.articles__title,
+.videos__title,
+.social__title {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.articles__intro,
+.videos__intro,
+.social__intro {
+  max-width: 34rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.articles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 1.6vw, 1.5rem);
+}
+
+.article {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.articles__grid .card__media {
+  aspect-ratio: 16 / 9;
+}
+
+.articles__grid .card__body {
+  /* Sense position: relative, l'enllaç de "Llegir l'article" cobreix tota la targeta. */
+  position: static;
+  flex: 1;
+  padding: 1.5rem 1.5rem 1.25rem;
+}
+
+.article__meta {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.article__meta span:last-child {
+  color: var(--violet-text);
+}
+
+.article__title {
+  margin-top: 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.2vw, 2.125rem);
+  font-weight: 500;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.articles__grid .card__text {
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+  font-size: 1rem;
+  color: var(--ink);
+  opacity: 0.78;
+}
+
+.article__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.article__date {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.article__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.article__cta .arrow {
+  align-self: center;
+  margin-top: 0;
+}
+
+.articles__grid .card:hover .article__cta,
+.articles__grid .card:focus-within .article__cta {
+  color: var(--violet-text);
+}
+
+.articles__grid .card:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Zoom mínim de la imatge quan n'hi ha. */
+.articles__grid .card__img {
+  transition: transform 0.4s ease;
+}
+
+.articles__grid .card:hover .card__img {
+  transform: scale(1.015);
+}
+
+@media (max-width: 1199px) {
+  .articles__head,
+  .videos__head,
+  .social__head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .articles__all,
+  .videos__all,
+  .social__all {
+    justify-self: start;
+  }
+
+  .articles__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Un article sol a l'última fila ocupa tot l'ample, amb la imatge al costat. */
+  .articles__grid .card:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+  }
+
+  .articles__grid .card:nth-child(odd):last-child .article {
+    flex-direction: row;
+  }
+
+  .articles__grid .card:nth-child(odd):last-child .card__media {
+    flex: 0 0 45%;
+    aspect-ratio: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 599px) {
+  .articles__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .articles__grid .card:nth-child(odd):last-child .article {
+    flex-direction: column;
+  }
+
+  .articles__grid .card:nth-child(odd):last-child .card__media {
+    flex: none;
+    aspect-ratio: 16 / 9;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .articles__grid .card__body {
+    padding: 1.25rem 1.25rem 1.1rem;
+  }
+}
