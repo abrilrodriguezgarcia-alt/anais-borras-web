@@ -1,0 +1,250 @@
+.projects {
+  padding-block: var(--section-space);
+  border-top: 1px solid var(--line);
+}
+
+.projects__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr) auto;
+  align-items: end;
+  gap: 2rem clamp(2rem, 5vw, 6rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.projects__title {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.projects__intro {
+  display: grid;
+  gap: 1rem;
+  max-width: 34rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.projects__intro p:last-child {
+  color: var(--muted);
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 1.6vw, 1.5rem);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  transition: border-color 0.2s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  border-color: var(--ink);
+}
+
+.card:focus-within {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+}
+
+.card__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder editorial mentre no hi ha imatge oficial. */
+.card__placeholder {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  background: var(--lavender);
+  color: var(--ink);
+}
+
+.card--ink .card__placeholder { background: var(--ink); color: var(--paper); }
+.card--sand .card__placeholder { background: var(--paper-deep); }
+.card--lavender-soft .card__placeholder { background: var(--lavender-soft); font-style: italic; }
+
+/* Targetes de projecte: fotografia real + overlay + logotip oficial superposat. */
+.project-media {
+  position: relative;
+  isolation: isolate;
+  background: var(--ink);
+}
+
+.project-media__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.card:hover .project-media__img,
+.card:focus-within .project-media__img {
+  transform: scale(1.025);
+}
+
+.project-media__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Overlay adaptat a cada fotografia: la imatge s'ha de continuar percebent bé. */
+.project-media[data-overlay='soft'] .project-media__overlay {
+  background: linear-gradient(to bottom, rgba(17, 17, 17, 0.1), rgba(17, 17, 17, 0.42));
+}
+
+.project-media[data-overlay='faint'] .project-media__overlay {
+  background: linear-gradient(to bottom, rgba(17, 17, 17, 0), rgba(17, 17, 17, 0.28));
+}
+
+/* Logo negre sobre fons lavanda: sense enfosquir. */
+.project-media[data-overlay='light'] .project-media__overlay {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(17, 17, 17, 0.04));
+}
+
+.project-media__logo {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  width: auto;
+  max-width: 62%;
+  max-height: 64px;
+  object-fit: contain;
+}
+
+.project-media[data-logo-position='top'] .project-media__logo {
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.project-media[data-logo-position='bottom-left'] .project-media__logo {
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+.project-media--la-directa .project-media__logo { width: 58%; max-width: 58%; }
+.project-media--teatre-barcelona .project-media__logo { width: 66%; max-width: 66%; }
+.project-media--rac1 .project-media__logo { width: auto; height: 64px; }
+
+/* El logo de FeminismeZ és un PNG 16:9 amb marges transparents: es retalla amb CSS sense duplicar l'asset. */
+.project-media__logo--crop {
+  width: 54%;
+  max-width: none;
+  max-height: none;
+  aspect-ratio: 1345 / 570;
+  overflow: hidden;
+}
+
+.project-media__logo--crop img {
+  display: block;
+  width: 142.75%;
+  max-width: none;
+  height: auto;
+  margin-left: -19%;
+  margin-top: -19.7%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-media__img {
+    transition: none;
+  }
+
+  .card:hover .project-media__img,
+  .card:focus-within .project-media__img {
+    transform: none;
+  }
+}
+
+.card__body {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 1.1rem;
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+/* L'enllaç del títol cobreix tota la targeta. */
+.card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.card__link:focus-visible {
+  outline: none;
+}
+
+.card__text {
+  margin-top: 0.6rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.card .arrow {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+  color: var(--violet-text);
+}
+
+@media (max-width: 1199px) {
+  .projects__head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .projects__all {
+    justify-self: start;
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 599px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+}

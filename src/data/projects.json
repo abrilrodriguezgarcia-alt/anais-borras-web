@@ -1,0 +1,51 @@
+[
+  {
+    "id": "feminismez",
+    "name": "FeminismeZ",
+    "description": "Pòdcast i videopòdcast de feminismes, teoria queer i cultura contemporània.",
+    "href": "/projectes#feminismez",
+    "image": "/images/projects/feminismez.webp",
+    "imageWidth": 960,
+    "imageHeight": 720,
+    "logo": "/images/logo feminisme z/Logo_FZ_Transparent_negre (2).png",
+    "logoPosition": "top",
+    "logoCrop": true,
+    "overlay": "light"
+  },
+  {
+    "id": "la-directa",
+    "name": "La Directa",
+    "description": "Articles, entrevistes i anàlisi sobre cultura, feminismes i memòria.",
+    "href": "/projectes#la-directa",
+    "image": "/images/projects/la-directa.webp",
+    "imageWidth": 911,
+    "imageHeight": 683,
+    "logo": "/images/logos/la-directa-blanc.svg",
+    "logoPosition": "bottom-left",
+    "overlay": "faint"
+  },
+  {
+    "id": "rac1",
+    "name": "RAC1",
+    "description": "Ens ho prenem amb Filosofia: la filosofia aplicada a qüestions contemporànies.",
+    "href": "/projectes#rac1",
+    "image": "/images/projects/rac1.webp",
+    "imageWidth": 620,
+    "imageHeight": 465,
+    "logo": "/images/logos/rac1.svg",
+    "logoPosition": "bottom-left",
+    "overlay": "soft"
+  },
+  {
+    "id": "teatre-barcelona",
+    "name": "Teatre Barcelona",
+    "description": "Cultura i arts escèniques amb mirada social.",
+    "href": "/projectes#teatre-barcelona",
+    "image": "/images/projects/teatre-barcelona.webp",
+    "imageWidth": 960,
+    "imageHeight": 720,
+    "logo": "/images/logos/teatre-barcelona-blanc.svg",
+    "logoPosition": "bottom-left",
+    "overlay": "soft"
+  }
+]
