@@ -24,7 +24,7 @@
 
 .nav__list {
   display: flex;
-  gap: clamp(1.5rem, 3vw, 3rem);
+  gap: clamp(2rem, 4.5vw, 4.5rem);
 }
 
 .nav__link {
@@ -39,8 +39,13 @@
   transition: color 0.2s ease;
 }
 
-.nav__link:hover {
+.nav__link:hover,
+.nav__link[aria-current='page'] {
   color: var(--violet-text);
+}
+
+.nav__link[aria-current='page'] {
+  border-bottom-color: currentColor;
 }
 
 .socials {

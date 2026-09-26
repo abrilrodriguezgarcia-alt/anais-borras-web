@@ -15,12 +15,15 @@ function dataSlots() {
     configResolved(config) {
       base = config.base;
     },
-    async transformIndexHtml(html) {
+    async transformIndexHtml(html, ctx) {
       const file = resolve(root, 'scripts/render.js');
       const render = await import(`${pathToFileURL(file).href}?v=${statSync(file).mtimeMs}`);
       const site = readJson('site.json');
+      // Ruta de la pàgina que es renderitza (sobre-mi/index.html → /sobre-mi; index.html → cap).
+      const dir = (ctx.filename ?? '').slice(root.length).replace(/^\/|\/?index\.html$/g, '');
       const slots = {
-        nav: render.nav(site),
+        base,
+        nav: render.nav(site, base, dir && `/${dir}`),
         socials: render.socials(site),
         topics: render.topics(site),
         legal: render.legal(site),
@@ -46,4 +49,13 @@ function dataSlots() {
 export default defineConfig({
   base: '/anais-borras-web/',
   plugins:  [dataSlots()],
+  build: {
+    rollupOptions: {
+      // Pàgines multipàgina: cada carpeta amb el seu index.html.
+      input: {
+        main: resolve(root, 'index.html'),
+        'sobre-mi': resolve(root, 'sobre-mi/index.html'),
+      },
+    },
+  },
 });

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sobre mi — Anaïs Borràs</title>
+    <meta
+      name="description"
+      content="Anaïs Borràs, filòsofa, periodista i comunicadora. Filosofia, actualitat, cultura i feminismes per entendre millor el món que ens envolta."
+    />
+    <meta name="theme-color" content="#F4F1EB" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap"
+    />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contingut">Salta al contingut</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+          <span class="brand__line">Anaïs</span>
+          <span class="brand__line">Borràs</span>
+        </a>
+        <nav class="nav" aria-label="Navegació principal">
+          <ul class="nav__list">
+            <!-- @slot:nav -->
+          </ul>
+        </nav>
+        <ul class="socials" aria-label="Xarxes socials">
+          <!-- @slot:socials -->
+        </ul>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <section class="about-hero" aria-labelledby="about-hero-title">
+        <div class="container about-hero__inner">
+          <div class="about-hero__content">
+            <p class="eyebrow about-hero__eyebrow">Sobre mi</p>
+            <h1 class="about-hero__title" id="about-hero-title">
+              <span class="about-hero__line">Penso abans</span>
+              <span class="about-hero__line">de preguntar.</span>
+              <span class="about-hero__line about-hero__line--alt">Pregunto abans</span>
+              <span class="about-hero__line about-hero__line--alt">d’explicar.</span>
+            </h1>
+            <div class="about-hero__intro">
+              <p class="about-hero__roles">Filòsofa · Periodista · Comunicadora</p>
+              <p class="about-hero__text">
+                Filosofia, actualitat, cultura i feminismes per entendre millor el món que ens envolta.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <figure class="about-hero__media">
+          <div class="about-hero__frame">
+            <img
+              class="about-hero__img"
+              src="/src/assets/images/anais-sobre-mi-1200.jpg"
+              srcset="/src/assets/images/anais-sobre-mi-800.jpg 800w, /src/assets/images/anais-sobre-mi-1200.jpg 1200w, /src/assets/images/anais-sobre-mi-1600.jpg 1600w"
+              sizes="(min-width: 901px) 46vw, 100vw"
+              width="1200"
+              height="1800"
+              alt="Retrat d'Anaïs Borràs dempeus sobre un fons lavanda, vestida de negre, amb els cabells llargs i mirant a càmera."
+              fetchpriority="high"
+            />
+          </div>
+          <ul class="about-hero__tags" aria-hidden="true">
+            <li class="about-hero__tag about-hero__tag--1">Filòsofa</li>
+            <li class="about-hero__tag about-hero__tag--2">Periodista</li>
+            <li class="about-hero__tag about-hero__tag--3">Comunicadora</li>
+          </ul>
+        </figure>
+      </section>
+
+      <section class="about-look" aria-labelledby="about-look-title">
+        <div class="container about-look__inner">
+          <div class="about-look__lead">
+            <p class="eyebrow">La meva mirada</p>
+            <h2 class="about-look__title" id="about-look-title">
+              No m’interessa només què passa.
+              <span class="about-look__accent">M’interessa entendre per què passa.</span>
+            </h2>
+          </div>
+
+          <!-- TODO: bio provisional (copy facilitat per al disseny); validar amb Anaïs. -->
+          <div class="about-look__spread">
+            <p class="about-look__frag about-look__frag--lead" data-reveal>Soc l’Anaïs Borràs, periodista i filòsofa.</p>
+
+            <ul class="about-words" aria-label="Els meus àmbits">
+              <li class="about-words__item" data-cursor="hover"><span class="about-words__num" aria-hidden="true">01</span><span class="about-words__word">Filosofia</span></li>
+              <li class="about-words__item" data-cursor="hover"><span class="about-words__num" aria-hidden="true">02</span><span class="about-words__word">Actualitat</span></li>
+            </ul>
+
+            <p class="about-look__frag about-look__frag--body" data-reveal>
+              M’agrada connectar filosofia, actualitat, cultura i feminismes per obrir converses que ens ajudin a
+              entendre millor el món i imaginar-ne d’altres.
+            </p>
+
+            <ul class="about-words" aria-label="Els meus àmbits (continuació)">
+              <li class="about-words__item" data-cursor="hover"><span class="about-words__num" aria-hidden="true">03</span><span class="about-words__word">Cultura</span></li>
+              <li class="about-words__item" data-cursor="hover"><span class="about-words__num" aria-hidden="true">04</span><span class="about-words__word">Feminismes</span></li>
+            </ul>
+
+            <p class="about-look__frag about-look__frag--body about-look__frag--last" data-reveal>
+              Creo contingut, escric, participo en projectes periodístics i culturals i, sobretot, intento fer
+              preguntes que importen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="formats" aria-labelledby="formats-title" data-formats>
+        <div class="formats__track">
+          <div class="formats__stage">
+            <p class="eyebrow formats__eyebrow">Una mirada, molts formats</p>
+            <h2 class="formats__title" id="formats-title">Una idea pot ser</h2>
+            <ul class="formats__list">
+              <li class="formats__item">un article.</li>
+              <li class="formats__item">un podcast.</li>
+              <li class="formats__item">una entrevista.</li>
+              <li class="formats__item">una conversa.</li>
+              <li class="formats__item">un vídeo.</li>
+              <li class="formats__item">una pregunta.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="container formats__close" data-reveal>
+          <p class="formats__statement">
+            <span class="formats__statement-line">El format canvia.</span>
+            <span class="formats__statement-line formats__statement-line--accent">La mirada, no.</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="how" aria-labelledby="how-title">
+        <div class="container how__inner">
+          <header class="how__head">
+            <p class="eyebrow">Com treballo</p>
+            <h2 class="how__title" id="how-title">Pensar · Preguntar · Explicar</h2>
+          </header>
+
+          <div class="how__grid">
+            <article class="how__item how__item--think" data-reveal>
+              <p class="how__num"><span>01</span> —</p>
+              <h3 class="how__word">Pensar</h3>
+              <p class="how__text">Filosofia per qüestionar allò que sovint donem per fet.</p>
+            </article>
+
+            <figure class="how__photo how__photo--a" data-reveal>
+              <img
+                class="how__img how__img--bw"
+                src="/src/assets/images/anais-pensar-1000.jpg"
+                srcset="/src/assets/images/anais-pensar-700.jpg 700w, /src/assets/images/anais-pensar-1000.jpg 1000w"
+                sizes="(min-width: 901px) 26vw, 70vw"
+                width="1000"
+                height="1500"
+                alt="Retrat en blanc i negre d'Anaïs Borràs de tres quarts, amb americana, mirant de reüll cap a un costat."
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <p class="how__mark" aria-hidden="true">?</p>
+
+            <article class="how__item how__item--ask" data-reveal>
+              <p class="how__num"><span>02</span> —</p>
+              <h3 class="how__word">Preguntar</h3>
+              <p class="how__text">Periodisme per escoltar, contrastar i arribar una mica més lluny.</p>
+            </article>
+
+            <div class="how__item how__item--explain" data-reveal>
+              <figure class="how__photo how__photo--b">
+                <img
+                  class="how__img"
+                  src="/src/assets/images/anais-explicar-900.jpg"
+                  srcset="/src/assets/images/anais-explicar-900.jpg 900w, /src/assets/images/anais-explicar-1400.jpg 1400w"
+                  sizes="(min-width: 901px) 40vw, 100vw"
+                  width="1400"
+                  height="933"
+                  alt="Anaïs Borràs asseguda al plató de FeminismeZ, entre micròfons i sota el rètol de neó."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="how__explain-body">
+                <p class="how__num"><span>03</span> —</p>
+                <h3 class="how__word">Explicar</h3>
+                <p class="how__text">Comunicació per convertir idees complexes en converses que connecten.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <a class="brand site-footer__brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+            <span class="brand__line">Anaïs</span>
+            <span class="brand__line">Borràs</span>
+          </a>
+          <nav class="site-footer__nav" aria-label="Navegació del peu de pàgina">
+            <ul class="footer__list">
+              <!-- @slot:nav -->
+            </ul>
+          </nav>
+          <ul class="socials site-footer__socials" aria-label="Xarxes socials">
+            <!-- @slot:socials -->
+          </ul>
+        </div>
+        <div class="site-footer__bottom">
+          <ul class="footer__legal" aria-label="Informació legal">
+            <!-- @slot:legal -->
+          </ul>
+          <p class="site-footer__copy">© <!-- @slot:year --> Anaïs Borràs. Tots els drets reservats.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

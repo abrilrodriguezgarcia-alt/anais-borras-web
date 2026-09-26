@@ -21,8 +21,16 @@ const ICONS = {
 const ARROW =
   '<svg class="arrow" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
 
-export const nav = (site) =>
-  site.nav.map((item) => `<li><a class="nav__link" href="${esc(item.href)}">${esc(item.label)}</a></li>`).join('\n');
+// Enllaços interns amb el `base` de Vite (p. ex. /anais-borras-web/ a GitHub Pages) i barra final (carpeta/index.html).
+// `current` és la ruta de la pàgina activa i es marca amb aria-current.
+export const nav = (site, base = '/', current = '') =>
+  site.nav
+    .map((item) => {
+      const href = `${base.replace(/\/$/, '')}${item.href.replace(/\/$/, '')}/`;
+      const active = item.href === current ? ' aria-current="page"' : '';
+      return `<li><a class="nav__link" href="${esc(href)}"${active}>${esc(item.label)}</a></li>`;
+    })
+    .join('\n');
 
 export const socials = (site) =>
   site.socials

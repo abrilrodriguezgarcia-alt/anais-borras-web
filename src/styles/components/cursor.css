@@ -1,0 +1,165 @@
+/* Cursor personalitzat: punt amb degradat lila (--violet) + lavanda (--lavender) que s'adapta a la zona.
+   El JS només afegeix .has-cursor amb ratolí i marca .cursor amb data-cursor-theme (light | lavender | dark | media). */
+
+/* Registrades perquè el navegador pugui interpolar el degradat entre temes (els valors inicials només són el punt de partida). */
+@property --cursor-color-1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #7255ff;
+}
+
+@property --cursor-color-2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #a79cef;
+}
+
+@property --cursor-ring {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --cursor-stop {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 45%;
+}
+
+@property --cursor-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 135deg;
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483647;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  will-change: transform;
+
+  /* Tema per defecte (fons cru): predomina el violeta. */
+  --theme-color-1: var(--violet);
+  --theme-color-2: var(--lavender);
+  --theme-stop: 45%;
+  --theme-angle: 135deg;
+  --theme-ring: color-mix(in srgb, var(--violet) 70%, transparent);
+}
+
+.cursor.is-visible {
+  opacity: 1;
+}
+
+/* Fons cru / paper: ~75 % violeta, ~25 % lavanda. */
+.cursor[data-cursor-theme='light'] {
+  --theme-color-1: var(--violet);
+  --theme-color-2: var(--lavender);
+  --theme-stop: 45%;
+  --theme-angle: 135deg;
+  --theme-ring: color-mix(in srgb, var(--violet) 70%, transparent);
+}
+
+/* Fons lavanda / violeta: domina el lavanda clar, amb una cua de violeta perquè no es perdi. */
+.cursor[data-cursor-theme='lavender'] {
+  --theme-color-1: var(--lavender-soft);
+  --theme-color-2: var(--violet);
+  --theme-stop: 40%;
+  --theme-angle: 160deg;
+  --theme-ring: color-mix(in srgb, var(--violet) 75%, transparent);
+}
+
+/* Fons foscos: lavanda clar, contorn gairebé imperceptible. */
+.cursor[data-cursor-theme='dark'] {
+  --theme-color-1: var(--lavender-soft);
+  --theme-color-2: var(--lavender);
+  --theme-stop: 55%;
+  --theme-angle: 120deg;
+  --theme-ring: color-mix(in srgb, var(--lavender-soft) 35%, transparent);
+}
+
+/* Fotografies: gradient equilibrat i més lluminós, amb un contorn clar per separar-lo de la imatge. */
+.cursor[data-cursor-theme='media'] {
+  --theme-color-1: var(--lavender-soft);
+  --theme-color-2: var(--violet);
+  --theme-stop: 20%;
+  --theme-angle: 145deg;
+  --theme-ring: color-mix(in srgb, var(--paper) 60%, transparent);
+}
+
+.cursor__dot {
+  --cursor-color-1: var(--theme-color-1);
+  --cursor-color-2: var(--theme-color-2);
+  --cursor-stop: var(--theme-stop);
+  --cursor-angle: var(--theme-angle);
+  --cursor-ring: var(--theme-ring);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 2rem;
+  margin: -1rem 0 0 -1rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    var(--cursor-angle),
+    var(--cursor-color-1) 0%,
+    var(--cursor-color-1) var(--cursor-stop),
+    var(--cursor-color-2) 100%
+  );
+  /* Contorn fi (2px a escala 1, ~1px en repòs) perquè el punt no es perdi sobre cap fons. */
+  box-shadow: inset 0 0 0 2px var(--cursor-ring);
+  transform: scale(0.53); /* 32px × 0.53 ≈ 17px */
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.28s ease,
+    --cursor-color-1 0.2s ease,
+    --cursor-color-2 0.2s ease,
+    --cursor-ring 0.2s ease,
+    --cursor-stop 0.2s ease,
+    --cursor-angle 0.2s ease;
+}
+
+/* Sobre elements clicables: creix, el degradat gira una mica i guanya contrast (més violeta visible, més opacitat). */
+.cursor.is-hover .cursor__dot {
+  --cursor-angle: calc(var(--theme-angle) + 40deg);
+  --cursor-stop: calc(var(--theme-stop) - 12%);
+  transform: scale(1); /* 32px */
+  opacity: 0.75;
+}
+
+.cursor.is-down .cursor__dot {
+  transform: scale(0.42);
+}
+
+.cursor.is-hover.is-down .cursor__dot {
+  transform: scale(0.85);
+}
+
+/* Amaga el cursor natiu només quan el punt està actiu. */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+/* Camps de text: cursor natiu i sense punt. */
+html.has-cursor.cursor-native,
+html.has-cursor.cursor-native * {
+  cursor: revert !important;
+}
+
+html.has-cursor.cursor-native .cursor {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor,
+  .cursor__dot {
+    transition: none;
+  }
+}

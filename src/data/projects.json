@@ -7,7 +7,7 @@
     "image": "/images/projects/feminismez.webp",
     "imageWidth": 960,
     "imageHeight": 720,
-    "logo": "/images/logo feminisme z/Logo_FZ_blanc.png",
+    "logo": "/images/logo feminisme z/Logo_FZ_lletres-blanques.png",
     "logoPosition": "bottom-left",
     "overlay": "editorial"
   },
@@ -18,7 +18,7 @@
     "href": "/projectes#la-directa",
     "image": "/images/projects/la-directa.webp",
     "imageWidth": 960,
-    "imageHeight": 720,
+    "imageHeight": 1030,
     "logo": "/images/logos/la-directa-blanc.svg",
     "logoPosition": "bottom-left",
     "overlay": "editorial"
@@ -30,7 +30,7 @@
     "href": "/projectes#rac1",
     "image": "/images/projects/rac1.webp",
     "imageWidth": 900,
-    "imageHeight": 675,
+    "imageHeight": 940,
     "logo": "/images/logos/rac1.svg",
     "logoPosition": "bottom-left",
     "overlay": "editorial"

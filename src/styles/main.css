@@ -8,5 +8,8 @@
 @import './components/videos.css';
 @import './components/social.css';
 @import './components/about.css';
+@import './components/about-page.css';
+@import './components/about-sections.css';
 @import './components/contact.css';
 @import './components/footer.css';
+@import './components/cursor.css';

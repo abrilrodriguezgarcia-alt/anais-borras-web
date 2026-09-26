@@ -138,6 +138,10 @@
   object-position: left bottom;
 }
 
+/* Enquadrament vertical: les fotografies tenen marge extra a sota; object-position tria quina part es veu (mateixa escala que abans). */
+.project-media--la-directa .project-media__img { object-position: 50% 77%; }
+.project-media--rac1 .project-media__img { object-position: 50% 43%; }
+
 /* Amplades ajustades a la proporció de cada logo perquè tinguin un pes visual semblant. */
 .project-media--teatre-barcelona .project-media__logo { width: 66%; }
 .project-media--la-directa .project-media__logo { width: 46%; }
