@@ -252,6 +252,18 @@
   color: var(--muted);
 }
 
+/* Estrella del cursor (mateixa màscara), estàtica, com a separador de la frase. */
+.star-sep {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  margin-inline: 0.4em;
+  vertical-align: 0.02em;
+  background: currentColor;
+  -webkit-mask: var(--star-shape) center / 100% 100% no-repeat;
+  mask: var(--star-shape) center / 100% 100% no-repeat;
+}
+
 .how__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));

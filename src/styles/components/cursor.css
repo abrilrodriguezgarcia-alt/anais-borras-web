@@ -33,6 +33,11 @@
   initial-value: 135deg;
 }
 
+/* Estrella de 5 puntes amples i arrodonides, centrada al punt exacte del cursor. Compartida amb els separadors estàtics (.star-sep). */
+:root {
+  --star-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.00 3.00 L20.35 10.01 L28.36 11.98 L23.04 18.29 L23.64 26.52 L16.00 23.40 L8.36 26.52 L8.96 18.29 L3.64 11.98 L11.65 10.01Z' fill='black' stroke='black' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
 .cursor {
   position: fixed;
   top: 0;
@@ -99,8 +104,7 @@
   --cursor-stop: var(--theme-stop);
   --cursor-angle: var(--theme-angle);
   --cursor-ring: var(--theme-ring);
-  /* Estrella de 5 puntes amples i arrodonides, centrada al punt exacte del cursor (mateix centre que el cercle anterior). */
-  --cursor-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16.00 3.00 L20.35 10.01 L28.36 11.98 L23.04 18.29 L23.64 26.52 L16.00 23.40 L8.36 26.52 L8.96 18.29 L3.64 11.98 L11.65 10.01Z' fill='black' stroke='black' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --cursor-star: var(--star-shape);
 
   position: absolute;
   top: 0;

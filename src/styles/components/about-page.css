@@ -165,7 +165,7 @@
 }
 
 .about-hero__tag--1 { top: 16%; left: -2.75rem; animation-delay: 0.7s; }
-.about-hero__tag--2 { top: 46%; right: 1.25rem; animation-delay: 0.85s; }
+.about-hero__tag--2 { top: 38%; right: 1.25rem; animation-delay: 0.85s; }
 .about-hero__tag--3 { top: 76%; left: -1.25rem; animation-delay: 1s; }
 
 .about-hero__media:hover .about-hero__tag--1 { transform: translateX(-0.5rem); }
