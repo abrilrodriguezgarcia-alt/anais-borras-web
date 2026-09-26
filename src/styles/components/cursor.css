@@ -112,7 +112,7 @@
   background: var(--cursor-ring);
   -webkit-mask: var(--cursor-star) center / 100% 100% no-repeat;
   mask: var(--cursor-star) center / 100% 100% no-repeat;
-  transform: scale(0.62); /* estrella ≈ 18px d'ample en repòs */
+  transform: scale(0.7); /* estrella ≈ 20px d'ample en repòs */
   transition:
     transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.28s ease,
@@ -141,7 +141,7 @@
 .cursor.is-hover .cursor__dot {
   --cursor-angle: calc(var(--theme-angle) + 40deg);
   --cursor-stop: calc(var(--theme-stop) - 12%);
-  transform: scale(1.12); /* estrella ≈ 32px d'ample */
+  transform: scale(1.15); /* estrella ≈ 33px d'ample */
   opacity: 0.75;
 }
 
