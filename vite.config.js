@@ -40,5 +40,6 @@ function dataSlots() {
 }
 
 export default defineConfig({
-  plugins: [dataSlots()],
+  base: '/anais-borras-web/',
+  plugins:  [dataSlots()],
 });
