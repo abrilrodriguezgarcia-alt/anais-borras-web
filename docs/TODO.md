@@ -100,5 +100,5 @@
 - [ ] Decidir si les publicacions d’Instagram s’han d’obrir amb embed oficial després d’interacció; ara enllacen directament al post original.
 - [ ] Revisar drets d’ús de les miniatures d’Instagram i de la fotografia de Sobre mi (ús propi de la creadora, però confirmar).
 - [ ] Contingut final: «salut mental» al copy de FeminismeZ, seleccions definitives d’articles i vídeos, i email de contacte.
-- [ ] Moure fora de `public/` (p. ex. a `assets-src/`) els originals de `public/images/anais/IMG_*.jpg`, `anais-hero.jpg` i la maqueta `WhatsApp Image…jpeg`: acabarien a `dist/` (~55 MB).
+- [ ] Moure fora de `public/` (p. ex. a `assets-src/`) els originals de `public/images/anais/IMG_*.jpg` i `anais-hero.jpg`: acabarien a `dist/` (~55 MB). (La maqueta ja s'ha mogut a `docs/design/home-mockup.jpeg`.)
 - [ ] Construir les pàgines `/sobre-mi`, `/projectes`, `/articles`, `/contacte`, `/avis-legal`, `/privacitat` i `/cookies` (els enllaços ja existeixen a la Home).

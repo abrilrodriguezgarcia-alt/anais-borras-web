@@ -7,10 +7,9 @@
     "image": "/images/projects/feminismez.webp",
     "imageWidth": 960,
     "imageHeight": 720,
-    "logo": "/images/logo feminisme z/Logo_FZ_Transparent_negre (2).png",
-    "logoPosition": "top",
-    "logoCrop": true,
-    "overlay": "light"
+    "logo": "/images/logo feminisme z/Logo_FZ_blanc.png",
+    "logoPosition": "bottom-left",
+    "overlay": "editorial"
   },
   {
     "id": "la-directa",
@@ -18,11 +17,11 @@
     "description": "Articles, entrevistes i anàlisi sobre cultura, feminismes i memòria.",
     "href": "/projectes#la-directa",
     "image": "/images/projects/la-directa.webp",
-    "imageWidth": 911,
-    "imageHeight": 683,
+    "imageWidth": 960,
+    "imageHeight": 720,
     "logo": "/images/logos/la-directa-blanc.svg",
     "logoPosition": "bottom-left",
-    "overlay": "faint"
+    "overlay": "editorial"
   },
   {
     "id": "rac1",
@@ -30,11 +29,11 @@
     "description": "Ens ho prenem amb Filosofia: la filosofia aplicada a qüestions contemporànies.",
     "href": "/projectes#rac1",
     "image": "/images/projects/rac1.webp",
-    "imageWidth": 620,
-    "imageHeight": 465,
+    "imageWidth": 900,
+    "imageHeight": 675,
     "logo": "/images/logos/rac1.svg",
     "logoPosition": "bottom-left",
-    "overlay": "soft"
+    "overlay": "editorial"
   },
   {
     "id": "teatre-barcelona",

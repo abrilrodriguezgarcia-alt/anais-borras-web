@@ -54,22 +54,26 @@ export const partners = (list) =>
 
 // Zona visual de cada targeta: fotografia real + overlay + logotip oficial (decoratius; el nom apareix a sota).
 // Origen i estat de drets de cada asset: docs/ASSETS.md.
-const projectMedia = (p) => {
-  const logo = p.logoCrop
-    ? `<span class="project-media__logo project-media__logo--crop"><img src="${esc(encodeURI(p.logo))}" alt="" loading="lazy" decoding="async" width="1920" height="1080"></span>`
-    : `<img class="project-media__logo" src="${esc(p.logo)}" alt="" loading="lazy" decoding="async">`;
-  return `<div class="card__media project-media project-media--${esc(p.id)}" data-logo-position="${esc(p.logoPosition)}" data-overlay="${esc(p.overlay)}">
-    <img class="project-media__img" src="${esc(p.image)}" alt="" loading="lazy" decoding="async" width="${p.imageWidth}" height="${p.imageHeight}">
-    <span class="project-media__overlay" aria-hidden="true"></span>
+// Prefixa les rutes de public/ amb el base de Vite (p. ex. /anais-borras-web/ a GitHub Pages).
+const publicUrl = (base, path) => encodeURI(`${base.replace(/\/$/, '')}${path}`);
+
+const projectMedia = (p, base) => {
+  const logo = `<img class="project-media__logo" src="${esc(publicUrl(base, p.logo))}" alt="" loading="lazy" decoding="async">`;
+  const photo = p.image
+    ? `<img class="project-media__img" src="${esc(publicUrl(base, p.image))}" alt="" loading="lazy" decoding="async" width="${p.imageWidth}" height="${p.imageHeight}">
+    <span class="project-media__overlay" aria-hidden="true"></span>`
+    : '';
+  return `<div class="card__media project-media project-media--${esc(p.id)}" data-logo-position="${esc(p.logoPosition)}" data-overlay="${esc(p.overlay ?? 'none')}">
+    ${photo}
     ${logo}
   </div>`;
 };
 
-export const projects = (list) =>
+export const projects = (list, base = '/') =>
   list
     .map(
       (p) => `<li class="card card--project">
-  ${projectMedia(p)}
+  ${projectMedia(p, base)}
   <div class="card__body">
     <h3 class="card__title"><a class="card__link" href="${esc(p.href)}">${esc(p.name)}</a></h3>
     <p class="card__text">${esc(p.description)}</p>
@@ -135,7 +139,7 @@ const TYPE_ICONS = {
 const TYPE_LABELS = { reel: 'Reel', carousel: 'Publicació', post: 'Publicació' };
 
 // Selecció curada de publicacions reals d'Instagram: portada local + enllaç al post original (sense SDK de Meta).
-export const instagram = (list) =>
+export const instagram = (list, base = '/') =>
   list
     .map((p) => {
       const icon = TYPE_ICONS[p.type]
@@ -143,7 +147,7 @@ export const instagram = (list) =>
         : '';
       return `<li class="social__item">
   <a class="social__link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">
-    <img class="social__img" src="${esc(p.thumbnail)}" alt="${esc(p.alt)}" loading="lazy" decoding="async" width="${p.width}" height="${p.height}">
+    <img class="social__img" src="${esc(publicUrl(base, p.thumbnail))}" alt="${esc(p.alt)}" loading="lazy" decoding="async" width="${p.width}" height="${p.height}">
     ${icon}
     <span class="sr-only">${TYPE_LABELS[p.type] ?? 'Publicació'} a Instagram: ${esc(p.title)} (s'obre en una pestanya nova)</span>
   </a>

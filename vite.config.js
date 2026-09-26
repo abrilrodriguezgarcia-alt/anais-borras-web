@@ -9,8 +9,12 @@ const readJson = (name) => JSON.parse(readFileSync(resolve(root, 'src/data', nam
 // Substitueix <!-- @slot:nom --> d'index.html per HTML generat a partir de src/data/*.json.
 // El resultat és HTML estàtic (bo per a SEO i per a Hostinger); no hi ha render al client.
 function dataSlots() {
+  let base = '/';
   return {
     name: 'data-slots',
+    configResolved(config) {
+      base = config.base;
+    },
     async transformIndexHtml(html) {
       const file = resolve(root, 'scripts/render.js');
       const render = await import(`${pathToFileURL(file).href}?v=${statSync(file).mtimeMs}`);
@@ -22,9 +26,9 @@ function dataSlots() {
         legal: render.legal(site),
         instagramUrl: render.instagramUrl(site),
         year: render.year(),
-        instagram: render.instagram(readJson('social.json').slice(0, 6)),
+        instagram: render.instagram(readJson('social.json').slice(0, 6), base),
         partners: render.partners(readJson('partners.json')),
-        projects: render.projects(readJson('projects.json')),
+        projects: render.projects(readJson('projects.json'), base),
         videos: render.videos(readJson('videos.json').slice(0, 3)),
         featuredArticles: render.articles(readJson('articles.json').filter((a) => a.featured).slice(0, 3)),
       };

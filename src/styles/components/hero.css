@@ -91,59 +91,52 @@
   top: 0;
   right: 0;
   bottom: 0;
-  left: 31%;
+  /* Foto a escala gairebé completa (cap, braç, mà i cos) ancorada a la dreta; amb límit per no ampliar-la en pantalles molt amples. */
+  width: min(60%, 62rem);
   margin: 0;
   overflow: hidden;
-  /* Fade horitzontal per alpha: paper net fins ~38% del hero, foto al 100% cap al 56%, abans de la cara. */
+  /* Fusió per alpha, llarga i suau. El primer ~18% de la foto és fons lavanda buit; l'alpha arriba a 1 just després de l'inici de la cara (~37%). */
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    transparent 9%,
-    rgba(0, 0, 0, 0.1) 14%,
-    rgba(0, 0, 0, 0.3) 19%,
-    rgba(0, 0, 0, 0.58) 24%,
-    rgba(0, 0, 0, 0.84) 30%,
-    #000 36%,
+    transparent 2%,
+    rgba(0, 0, 0, 0.03) 6%,
+    rgba(0, 0, 0, 0.09) 10%,
+    rgba(0, 0, 0, 0.19) 14%,
+    rgba(0, 0, 0, 0.34) 18%,
+    rgba(0, 0, 0, 0.52) 22%,
+    rgba(0, 0, 0, 0.72) 26%,
+    rgba(0, 0, 0, 0.88) 30%,
+    rgba(0, 0, 0, 0.97) 34%,
+    #000 37%,
     #000 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    transparent 9%,
-    rgba(0, 0, 0, 0.1) 14%,
-    rgba(0, 0, 0, 0.3) 19%,
-    rgba(0, 0, 0, 0.58) 24%,
-    rgba(0, 0, 0, 0.84) 30%,
-    #000 36%,
+    transparent 2%,
+    rgba(0, 0, 0, 0.03) 6%,
+    rgba(0, 0, 0, 0.09) 10%,
+    rgba(0, 0, 0, 0.19) 14%,
+    rgba(0, 0, 0, 0.34) 18%,
+    rgba(0, 0, 0, 0.52) 22%,
+    rgba(0, 0, 0, 0.72) 26%,
+    rgba(0, 0, 0, 0.88) 30%,
+    rgba(0, 0, 0, 0.97) 34%,
+    #000 37%,
     #000 100%
   );
 }
 
+/* Sense mirall: la foto original ja mira cap a l'esquerra, cap al text. */
 .hero__img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Cap, tors i braços; l'amplada de la caixa fixa l'escala, només compta l'eix vertical. */
-  object-position: 50% 52%;
-  /* Mirall visual perquè la mirada vagi cap al text; el fitxer original queda intacte.
-     Només afecta l'<img>, no l'anotació ni cap altre element superposat. */
-  transform: scaleX(-1);
-}
-
-.hero__note {
-  position: absolute;
-  z-index: 4;
-  top: clamp(1.5rem, 4vw, 3.5rem);
-  right: clamp(1.5rem, 4vw, 3.5rem);
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
-  font-style: italic;
-  line-height: 1.15;
-  text-align: left;
-  color: rgba(244, 241, 235, 0.55);
-  transform: rotate(-4deg);
+  /* L'amplada de la caixa fixa l'escala (proporcions originals); només compta l'eix vertical. */
+  object-position: 50% 60%;
 }
 
 /* Entre tauleta i portàtil petit: les categories passen sota el claim. */
@@ -191,7 +184,7 @@
   .hero__media {
     position: relative;
     order: 5;
-    left: auto;
+    width: auto;
     margin-top: 2.5rem;
     aspect-ratio: 4 / 5;
     margin-inline: calc(var(--gutter) * -1);
@@ -199,9 +192,6 @@
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%);
     mask-image: linear-gradient(to bottom, transparent 0%, #000 16%);
   }
-
-  /* L'anotació surt de la zona del fade perquè es llegeixi sobre el lavanda. */
-  .hero__note { top: 22%; }
 
   .hero__topics {
     order: 6;
@@ -219,5 +209,5 @@
 
 @media (min-width: 600px) and (max-width: 900px) {
   .hero__media { aspect-ratio: 4 / 3; }
-  .hero__img { object-position: 50% 48%; }
+  .hero__img { object-position: 50% 50%; }
 }
