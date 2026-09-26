@@ -56,4 +56,10 @@ La captura de la maqueta aprovada (abans `public/images/WhatsApp Image 2026-09-2
 
 ## Sobre mi (`/sobre-mi`)
 
-Hero: `public/images/anais/IMG_6979.jpg` (Anaïs dempeus sobre fons lavanda; material propi). Versions web (JPG, 800/1200/1600 px d'ample) a `src/assets/images/anais-sobre-mi-*.jpg`. Estils a `src/styles/components/about-page.css`.
+Hero: `public/images/anais/IMG_6979.jpg` (Anaïs dempeus sobre fons lavanda; material propi). Versions web (WebP, 800/1200/1600 px d'ample) a `src/assets/images/anais-sobre-mi-*.webp`. Estils a `src/styles/components/about-page.css`.
+
+Seccions "Com treballo": `public/images/anais/IMG_7272.jpg` (Pensar; blanc i negre via CSS, com el retrat de la Home) → `src/assets/images/anais-pensar-{700,1000}.webp`, i `public/images/imatges/IMG_6475.HEIC` (Explicar; Anaïs al plató de FeminismeZ, retall 3:2) → `src/assets/images/anais-explicar-{900,1400}.webp`. Material propi; confirmar amb Anaïs que es pot publicar el plató.
+
+Statement "Escoltar també és una manera de pensar" (`/sobre-mi`): `public/images/imatges/FeminismeZ.HEIC` (Anaïs al plató de FeminismeZ; és la mateixa foto de la targeta de FeminismeZ de la Home, amb un altre retall) → `src/assets/images/anais-escoltar-{1600,2400}.webp` (apaïsat 1,9:1) i `anais-escoltar-v-{800,1200}.webp` (vertical 4:5, mòbil). Material propi.
+
+Trajectòria (`/sobre-mi`): les fotografies del panell són les de `src/data/projects.json` (`/images/projects/*.webp`). Dades a `src/data/trajectory.json`; Seny i Ràbia, Pantube, Onada Feminista i Presentació/moderació no tenen fotografia (bloc tipogràfic) ni pàgina de projecte. Textos a partir de `docs/CONTENT.md`; validar amb Anaïs.

@@ -98,7 +98,7 @@
 - [ ] Substituir el retrat de Sobre mi (ara `IMG_7163.jpg` en blanc i negre, sessió del hero) per un segon retrat definitiu. Alternatives a `public/images/anais/`: `IMG_7272.jpg`, `IMG_7253.jpg` o `IMG_6979.jpg`.
 - [ ] Revisar les publicacions d’Instagram triades i, si convé, canviar-les (`src/data/social.json`). Les miniatures són les de 640 px de la graella pública: si es vol més resolució, exportar-les del compte.
 - [ ] Decidir si les publicacions d’Instagram s’han d’obrir amb embed oficial després d’interacció; ara enllacen directament al post original.
-- [ ] Revisar drets d’ús de les miniatures d’Instagram i de la fotografia de Sobre mi (ús propi de la creadora, però confirmar).
+- [ ] Revisar drets d’ús de les miniatures d’Instagram i de la fotografia de Sobre mi (ús propi d’Anaïs, però confirmar).
 - [ ] Contingut final: «salut mental» al copy de FeminismeZ, seleccions definitives d’articles i vídeos, i email de contacte.
 - [ ] Moure fora de `public/` (p. ex. a `assets-src/`) els originals de `public/images/anais/IMG_*.jpg` i `anais-hero.jpg`: acabarien a `dist/` (~55 MB). (La maqueta ja s'ha mogut a `docs/design/home-mockup.jpeg`.)
 - [ ] Construir les pàgines `/sobre-mi`, `/projectes`, `/articles`, `/contacte`, `/avis-legal`, `/privacitat` i `/cookies` (els enllaços ja existeixen a la Home).

@@ -15,9 +15,7 @@ en:
 ## Posicionament
 
 Anaïs es presenta com a:
-- periodista,
-- comunicadora,
-- creadora de contingut.
+- filòsofa i periodista.
 
 La filosofia funciona com el marc des d’on llegeix i connecta actualitat, cultura i qüestions socials.
 
@@ -90,12 +88,11 @@ La web ha de reflectir aquesta profunditat sense convertir-se en una web acadèm
 
 Cerques de marca a treballar:
 - Anaïs Borràs
-- Anaïs Borràs periodista
+- Anaïs Borràs filòsofa i periodista
 - Anaïs Borràs filosofia
-- Anaïs Borràs creadora de contingut
 - Anaïs Borràs FeminismeZ
 - Anaïs Borràs RAC1
 
 Possible `<title>` inicial:
 
-**Anaïs Borràs — Periodista, comunicadora i creadora de contingut**
+**Anaïs Borràs — Filòsofa i periodista**

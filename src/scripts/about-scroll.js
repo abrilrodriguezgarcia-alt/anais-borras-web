@@ -1,7 +1,7 @@
-// Pàgina /sobre-mi: aparició progressiva de blocs ([data-reveal]) i progrés lligat a l'scroll de
+// Pàgina /sobre-mi: aparició progressiva de blocs ([data-reveal] i escenes [data-scene]) i progrés lligat a l'scroll de
 // "Una mirada, molts formats" ([data-formats]). Els estils inicials només s'apliquen amb .js-reveal a <html>,
 // així que sense JS, o amb prefers-reduced-motion, tot queda visible i estàtic.
-const reveals = document.querySelectorAll('[data-reveal]');
+const reveals = document.querySelectorAll('[data-reveal], [data-scene]');
 const formats = document.querySelector('[data-formats]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 

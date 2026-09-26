@@ -162,3 +162,46 @@ export const instagram = (list, base = '/') =>
 </li>`;
     })
     .join('\n');
+
+// Enllaç intern amb el `base` de Vite, barra final a la ruta i àncora opcional (p. ex. /projectes#rac1 → base + projectes/#rac1).
+const internalUrl = (base, href) => {
+  const [path, hash] = href.split('#');
+  return `${base.replace(/\/$/, '')}${path.replace(/\/$/, '')}/${hash ? `#${hash}` : ''}`;
+};
+
+// Trajectòria (Sobre mi): fila editorial per experiència. Si hi ha un projecte relacionat a projects.json, la fila
+// n'és l'enllaç. `TODO` de contingut: Pantube, Onada Feminista i Presentació/moderació només tenen la descripció
+// de docs/CONTENT.md; validar amb Anaïs.
+export const trajectory = (list, projects, base = '/') =>
+  list
+    .map((t, i) => {
+      const project = projects.find((p) => p.id === t.project);
+      const tag = project ? 'a' : 'div';
+      const attrs = project ? ` href="${esc(internalUrl(base, project.href))}"` : '';
+      return `<li class="trajectory__item" data-trajectory="${esc(t.id)}">
+  <${tag} class="trajectory__row"${attrs}>
+    <span class="trajectory__num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
+    <span class="trajectory__name">${esc(t.name)}</span>
+    <span class="trajectory__kind">${esc(t.kind)}</span>
+    ${project ? ARROW.replace('class="arrow"', 'class="arrow trajectory__arrow"') : ''}
+    <span class="trajectory__desc"><span>${esc(t.description)}</span></span>
+  </${tag}>
+</li>`;
+    })
+    .join('\n');
+
+// Panell de previsualització enganxat a la dreta: una fotografia real per fila (o un bloc tipogràfic si no n'hi ha).
+export const trajectoryPreview = (list, projects, base = '/') =>
+  list
+    .map((t, i) => {
+      const project = projects.find((p) => p.id === t.project);
+      const num = String(i + 1).padStart(2, '0');
+      const media = project?.image
+        ? `<img class="trajectory__img" src="${esc(publicUrl(base, project.image))}" alt="" loading="lazy" decoding="async" width="${project.imageWidth}" height="${project.imageHeight}">`
+        : `<span class="trajectory__type" aria-hidden="true">${esc(t.name)}</span>`;
+      return `<figure class="trajectory__fig${i === 0 ? ' is-active' : ''}" data-for="${esc(t.id)}">
+  ${media}
+  <figcaption class="trajectory__caption">${num} — ${esc(t.name)}</figcaption>
+</figure>`;
+    })
+    .join('\n');

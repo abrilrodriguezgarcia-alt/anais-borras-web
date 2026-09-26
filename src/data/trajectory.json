@@ -1,0 +1,54 @@
+[
+  {
+    "id": "feminismez",
+    "name": "FeminismeZ",
+    "kind": "Projecte propi · Videopòdcast",
+    "description": "Pòdcast i videopòdcast de feminismes, teoria queer i cultura contemporània.",
+    "project": "feminismez"
+  },
+  {
+    "id": "la-directa",
+    "name": "La Directa",
+    "kind": "Periodisme escrit",
+    "description": "Articles, entrevistes i anàlisi sobre cultura, feminismes i memòria.",
+    "project": "la-directa"
+  },
+  {
+    "id": "rac1",
+    "name": "RAC1",
+    "kind": "Ràdio · Ens ho prenem amb Filosofia",
+    "description": "La filosofia aplicada a qüestions contemporànies.",
+    "project": "rac1"
+  },
+  {
+    "id": "teatre-barcelona",
+    "name": "Teatre Barcelona",
+    "kind": "Cultura · Arts escèniques",
+    "description": "Cultura i arts escèniques amb mirada social.",
+    "project": "teatre-barcelona"
+  },
+  {
+    "id": "seny-i-rabia",
+    "name": "Seny i Ràbia",
+    "kind": "Pòdcast anterior",
+    "description": "Responsabilitat reproductiva, antifeminisme, límits de l'humor i desinformació."
+  },
+  {
+    "id": "pantube",
+    "name": "Pantube",
+    "kind": "Creadors digitals en català",
+    "description": "Participació dins l'ecosistema de creadors digitals en català."
+  },
+  {
+    "id": "onada-feminista",
+    "name": "Onada Feminista",
+    "kind": "Comunicació feminista",
+    "description": "Part de la meva trajectòria comunicativa."
+  },
+  {
+    "id": "presentacio-moderacio",
+    "name": "Presentació i moderació",
+    "kind": "Actes i converses",
+    "description": "Presentar, moderar i entrevistar; conduir converses i actes."
+  }
+]

@@ -81,7 +81,7 @@ FeminismeZ ha de tenir una presència especialment visual i audiovisual.
 # 4. Articles
 
 Objectiu:
-reforçar el vessant de periodista i autora.
+reforçar el vessant de periodisme i escriptura.
 
 Targeta d’article:
 - mitjà,

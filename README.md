@@ -1,10 +1,10 @@
 # Anaïs Borràs — Web personal i professional
 
-Repositori base per dissenyar i desenvolupar la web d’**Anaïs Borràs**, periodista, comunicadora i creadora de contingut.
+Repositori base per dissenyar i desenvolupar la web d’**Anaïs Borràs**, filòsofa i periodista.
 
 ## Idea central
 
-La web ha de presentar l’Anaïs com una professional que connecta **periodisme, filosofia, actualitat i cultura**, amb una mirada crítica, contemporània i accessible.
+La web ha de presentar l’Anaïs com a filòsofa i periodista, que connecta **filosofia i periodisme** amb actualitat i cultura, amb una mirada crítica, contemporània i accessible.
 
 > **Filosofia, actualitat i cultura per mirar una mica més enllà del titular.**
 

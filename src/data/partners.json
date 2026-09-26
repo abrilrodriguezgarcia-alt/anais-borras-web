@@ -1,9 +1,7 @@
 [
   { "name": "La Directa", "variant": "serif" },
   { "name": "RAC1", "variant": "sans-bold" },
-  { "name": "FeminismeZ", "variant": "serif-medium" },
   { "name": "Teatre Barcelona", "variant": "sans-caps" },
-  { "name": "Seny i Ràbia", "variant": "serif-italic" },
   { "name": "Pantube", "variant": "sans-semibold" },
   { "name": "Onada Feminista", "variant": "serif" }
 ]

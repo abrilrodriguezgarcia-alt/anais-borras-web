@@ -4,13 +4,21 @@ Aquest és el document mestre de context per a qualsevol agent o sessió de Clau
 
 ## 1. Objectiu
 
-Construir la web personal i professional d’**Anaïs Borràs**, periodista, comunicadora i creadora de contingut.
+Construir la web personal i professional d’**Anaïs Borràs**, filòsofa i periodista.
 
 La web ha d’unificar una trajectòria distribuïda entre periodisme escrit, ràdio, pòdcast/videopòdcast, creació digital, cultura i moderació d’actes.
 
 ### Posicionament de treball
 
-**Anaïs Borràs — periodista, comunicadora i creadora de contingut.**
+**Anaïs Borràs — filòsofa i periodista.**
+
+### Etiquetes professionals (única nomenclatura permitida)
+
+Les úniques etiquetes que defineixen professionalment l’Anaïs (eyebrows, badges, títols, meta descriptions, SEO, dades estructurades…) són:
+- **Filòsofa i periodista** — per definir la persona.
+- **Filosofia i periodisme** — per definir el camp o l’activitat.
+
+Paraules com «creadora de contingut», «comunicadora», «divulgadora», «podcaster» o «presentadora» només poden aparèixer dins de textos descriptius (què fa, com treballa, en quins formats participa), mai com a etiqueta identitària. L’única excepció és el nom oficial del premi AMIC-Tresdeu.
 
 **Filosofia, actualitat i cultura per mirar una mica més enllà del titular.**
 

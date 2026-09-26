@@ -27,7 +27,7 @@ Molt aire i sense header corporatiu pesat.
 
 Eyebrow en Inter / violeta:
 
-**PERIODISTA · COMUNICADORA · CREADORA DE CONTINGUT**
+**FILÒSOFA I PERIODISTA**
 
 H1 en Newsreader de gran escala:
 
@@ -206,7 +206,7 @@ Eyebrow:
 **SOBRE MI**
 
 H2:
-**Periodista, comunicadora i creadora de contingut**
+**Filòsofa i periodista**
 
 Composició:
 - titular a l’esquerra,

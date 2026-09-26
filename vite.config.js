@@ -32,6 +32,9 @@ function dataSlots() {
         instagram: render.instagram(readJson('social.json').slice(0, 6), base),
         partners: render.partners(readJson('partners.json')),
         projects: render.projects(readJson('projects.json'), base),
+        contactUrl: `${base}#contacte`,
+        trajectory: render.trajectory(readJson('trajectory.json'), readJson('projects.json'), base),
+        trajectoryPreview: render.trajectoryPreview(readJson('trajectory.json'), readJson('projects.json'), base),
         videos: render.videos(readJson('videos.json').slice(0, 3)),
         featuredArticles: render.articles(readJson('articles.json').filter((a) => a.featured).slice(0, 3)),
       };
