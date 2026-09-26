@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contacte — Anaïs Borràs</title>
+    <meta
+      name="description"
+      content="Contacta amb Anaïs Borràs, filòsofa i periodista, per a col·laboracions, entrevistes, moderacions, projectes i propostes."
+    />
+    <meta property="og:title" content="Contacte — Anaïs Borràs" />
+    <meta property="og:description" content="Una idea, una entrevista, una col·laboració, una conversa o un projecte que tot just comença. Escriu a Anaïs Borràs, filòsofa i periodista." />
+    <meta name="theme-color" content="#F4F1EB" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap"
+    />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contingut">Salta al contingut</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+          <span class="brand__line">Anaïs</span>
+          <span class="brand__line">Borràs</span>
+        </a>
+        <nav class="nav" aria-label="Navegació principal">
+          <ul class="nav__list">
+            <!-- @slot:nav -->
+          </ul>
+        </nav>
+        <ul class="socials" aria-label="Xarxes socials">
+          <!-- @slot:socials -->
+        </ul>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <!-- 1. Hero: provoca l'acció. Continua el final de Sobre mi («Si tens alguna cosa que val la pena explicar, parlem.»). -->
+      <section class="contact-hero" aria-labelledby="contact-hero-title">
+        <div class="container contact-hero__inner">
+          <div class="contact-hero__head">
+            <p class="eyebrow contact-hero__label">
+              <span class="contact-hero__label-lead">Contacte</span><span class="contact-hero__label-sep"> — </span>
+              <span class="contact-hero__label-rest">Propostes / Projectes / Converses</span>
+            </p>
+            <p class="contact-hero__byline">Anaïs Borràs — Filòsofa i periodista</p>
+          </div>
+
+          <!-- Els <br class="contact-br"> només actuen a mòbil (≤600 px): allà el titular es recompon en «Tens alguna / cosa que / val la pena». -->
+          <h1 class="contact-hero__title" id="contact-hero-title">
+            <span class="contact-hero__line">
+              <span class="contact-hero__w" style="--w: 0">Tens</span> <span class="contact-hero__w" style="--w: 1">alguna</span><br class="contact-br" />
+              <span class="contact-hero__w" style="--w: 2">cosa</span>
+            </span>
+            <span class="contact-hero__line">
+              <span class="contact-hero__w" style="--w: 3">que</span><br class="contact-br" />
+              <span class="contact-hero__w" style="--w: 4">val</span> <span class="contact-hero__w" style="--w: 5">la</span> <span class="contact-hero__w" style="--w: 6">pena</span>
+            </span>
+            <span class="contact-hero__line contact-hero__line--alt">explicar?</span>
+            <span class="contact-hero__reply">
+              <span class="contact-hero__reply-text">Parlem.</span>
+              <span class="contact-hero__star" aria-hidden="true"></span>
+            </span>
+          </h1>
+
+          <div class="contact-hero__foot">
+            <p class="contact-hero__note">Col·laboracions, entrevistes, moderacions, projectes i propostes.</p>
+            <a class="link-arrow contact-hero__jump" href="#formulari">
+              Escriu-me
+              <svg class="arrow arrow--down" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 4v16m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prova de trajectòria: la mateixa franja «He col·laborat amb» de la Home (components/partners.css). -->
+      <section class="partners" aria-labelledby="partners-title">
+        <div class="container partners__inner">
+          <h2 class="partners__label" id="partners-title">He col·laborat amb</h2>
+          <ul class="partners__list">
+            <!-- @slot:partners -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- 2. Transició: baixa la pressa i porta la mirada cap al formulari (la línia vertical hi arriba). -->
+      <section class="contact-bridge" aria-labelledby="contact-bridge-title" data-scene>
+        <div class="container contact-bridge__inner">
+          <p class="eyebrow contact-bridge__label">Abans de començar</p>
+
+          <h2 class="contact-bridge__title" id="contact-bridge-title">
+            <span class="contact-bridge__line">No cal que<br class="contact-br" /> ho tinguis</span>
+            <span class="contact-bridge__line contact-bridge__line--indent">tot <span class="contact-bridge__mark">resolt.</span></span>
+          </h2>
+
+          <p class="contact-bridge__note">
+            Una idea, una entrevista, una col·laboració, una conversa o un projecte que tot just comença.
+          </p>
+
+          <!-- Qui rebrà la proposta: retrat B/N (el mateix de Sobre mi), amb el marc de línia fina i el reconeixement real. -->
+          <figure class="contact-bridge__portrait">
+            <div class="contact-bridge__frame">
+              <img
+                class="contact-bridge__img"
+                src="/src/assets/images/anais-pensar-1000.webp"
+                srcset="/src/assets/images/anais-pensar-700.webp 700w, /src/assets/images/anais-pensar-1000.webp 1000w"
+                sizes="(min-width: 901px) 26vw, 62vw"
+                width="1000"
+                height="1500"
+                alt="Retrat en blanc i negre d'Anaïs Borràs de tres quarts, amb americana, mirant de reüll cap a un costat."
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="contact-bridge__tag" aria-hidden="true">Filòsofa i periodista</span>
+            </div>
+            <figcaption class="contact-bridge__award">
+              <span class="contact-bridge__award-label">Reconeixement</span>
+              2024 — Premi AMIC-Tresdeu a millor creadora de contingut de conscienciació social.
+            </figcaption>
+          </figure>
+
+          <span class="contact-bridge__rule" aria-hidden="true"></span>
+
+          <p class="contact-bridge__cue">Comença explicant-m’ho.</p>
+        </div>
+      </section>
+
+      <!-- 3. Formulari: peça principal, plantejat com una entrevista (pregunta a l'esquerra, resposta a la dreta).
+           La UI és a src/scripts/contact-form.js; el transport d'enviament, separat, a src/scripts/contact-submit.js. -->
+      <section class="contact-form" id="formulari" aria-labelledby="contact-form-title">
+        <div class="container contact-form__inner">
+          <header class="contact-form__head" data-reveal>
+            <p class="eyebrow" aria-hidden="true">Escriu-me</p>
+            <h2 class="sr-only" id="contact-form-title">Formulari de contacte</h2>
+          </header>
+
+          <!-- TODO: data-endpoint buit fins que es decideixi el servei d'enviament (docs/INTEGRATIONS.md).
+               TODO: afegir la consulta/enllaç a Privacitat quan la pàgina existeixi. -->
+          <form class="contact-form__form" data-contact-form data-endpoint="" novalidate>
+            <div class="contact-form__row" data-reveal>
+              <p class="contact-form__num" aria-hidden="true">01 —</p>
+              <label class="contact-form__q" for="c-name">Com et dius?</label>
+              <div class="contact-form__a">
+                <input class="contact-form__input" id="c-name" name="name" type="text" autocomplete="name" autocapitalize="words" enterkeyhint="next" spellcheck="false" required placeholder="Nom" data-validate aria-describedby="c-name-error" />
+                <p class="contact-form__error" id="c-name-error"></p>
+              </div>
+            </div>
+
+            <div class="contact-form__row" data-reveal>
+              <p class="contact-form__num" aria-hidden="true">02 —</p>
+              <label class="contact-form__q" for="c-email">On et puc respondre?</label>
+              <div class="contact-form__a">
+                <input class="contact-form__input" id="c-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" enterkeyhint="next" spellcheck="false" required placeholder="Correu electrònic" data-validate aria-describedby="c-email-error" />
+                <p class="contact-form__error" id="c-email-error"></p>
+              </div>
+            </div>
+
+            <div class="contact-form__row" data-reveal>
+              <p class="contact-form__num" aria-hidden="true">03 —</p>
+              <p class="contact-form__q" id="c-topic-q">Què tens entre mans?</p>
+              <div class="contact-form__a">
+                <div class="contact-form__chips" role="radiogroup" aria-labelledby="c-topic-q">
+                  <label class="contact-form__chip"><input type="radio" name="topic" value="Col·laboració" /><span class="contact-form__chip-text">Col·laboració</span></label>
+                  <label class="contact-form__chip"><input type="radio" name="topic" value="Entrevista" /><span class="contact-form__chip-text">Entrevista</span></label>
+                  <label class="contact-form__chip"><input type="radio" name="topic" value="Moderació" /><span class="contact-form__chip-text">Moderació</span></label>
+                  <label class="contact-form__chip"><input type="radio" name="topic" value="Projecte" /><span class="contact-form__chip-text">Projecte</span></label>
+                  <label class="contact-form__chip"><input type="radio" name="topic" value="Una altra proposta" /><span class="contact-form__chip-text">Una altra proposta</span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form__row" data-reveal>
+              <p class="contact-form__num" aria-hidden="true">04 —</p>
+              <label class="contact-form__q" for="c-message">Explica-m’ho.</label>
+              <div class="contact-form__a">
+                <textarea class="contact-form__input contact-form__textarea" id="c-message" name="message" rows="5" enterkeyhint="enter" autocapitalize="sentences" required placeholder="Una idea, un context, una data…" data-validate aria-describedby="c-message-error"></textarea>
+                <p class="contact-form__error" id="c-message-error"></p>
+              </div>
+            </div>
+
+            <div class="contact-form__row contact-form__row--send" data-reveal>
+              <p class="contact-form__num" aria-hidden="true">05 —</p>
+              <!-- TODO: copy provisional. -->
+              <p class="contact-form__q contact-form__q--soft">Ja només falta això.</p>
+              <div class="contact-form__a">
+                <p class="contact-form__status" id="contact-form-status" role="alert"></p>
+                <button class="contact-form__submit" type="submit" data-submit>
+                  <span class="contact-form__submit-label" data-submit-label>Enviar proposta</span>
+                  <svg class="arrow" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Trampa anti-spam: invisible per a persones; si s'omple, no s'envia res. -->
+            <div class="contact-form__hp" aria-hidden="true">
+              <label>No omplis aquest camp <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+            </div>
+          </form>
+
+          <!-- Estat d'èxit: substitueix el formulari. -->
+          <div class="contact-form__done" data-contact-done role="group" aria-labelledby="contact-done-title" tabindex="-1" hidden>
+            <h3 class="contact-form__done-title" id="contact-done-title">
+              <span class="contact-form__done-line">Ja ho tinc.<span class="contact-form__done-star" aria-hidden="true"></span></span>
+              <span class="contact-form__done-line contact-form__done-line--accent">En parlem<br class="contact-br" /> aviat.</span>
+            </h3>
+            <button class="link-arrow contact-form__done-reset" type="button" data-contact-reset>Escriure’n una altra</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Alternatives de contacte: discretes, només canals reals de src/data/site.json (les xarxes sense URL no surten).
+           TODO: afegir `email` a site.json quan es confirmi el correu professional; apareixerà aquí sol. -->
+      <section class="contact-elsewhere" aria-labelledby="contact-elsewhere-title" data-scene>
+        <div class="container contact-elsewhere__inner">
+          <h2 class="contact-elsewhere__title" id="contact-elsewhere-title">Si ets més de missatge directe</h2>
+          <ul class="contact-elsewhere__list">
+            <!-- @slot:channels -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5. Tancament: l'última frase de tota la web, sobre lavanda. Sense botons: l'acció principal és el formulari. -->
+      <section class="contact-close" aria-labelledby="contact-close-title" data-scene>
+        <div class="container contact-close__inner">
+          <h2 class="contact-close__title" id="contact-close-title">
+            <span class="contact-close__line" style="--i: 0">Potser<br class="contact-br" /> només és</span>
+            <span class="contact-close__line" style="--i: 1">una idea<br class="contact-br" /> ara mateix.</span>
+          </h2>
+
+          <div class="contact-close__mark" aria-hidden="true"><span class="contact-close__star"></span></div>
+
+          <p class="contact-close__answer">
+            <span class="contact-close__line" style="--i: 3"><span class="contact-close__w" style="--w: 0">Les</span> <span class="contact-close__w" style="--w: 1">bones</span><br class="contact-br" /> <span class="contact-close__w" style="--w: 2">converses</span></span>
+            <span class="contact-close__line" style="--i: 4"><span class="contact-close__w" style="--w: 3">també</span><br class="contact-br" /> <span class="contact-close__w" style="--w: 4">comencen</span> <span class="contact-close__w" style="--w: 5">així.</span></span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <a class="brand site-footer__brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+            <span class="brand__line">Anaïs</span>
+            <span class="brand__line">Borràs</span>
+          </a>
+          <nav class="site-footer__nav" aria-label="Navegació del peu de pàgina">
+            <ul class="footer__list">
+              <!-- @slot:nav -->
+            </ul>
+          </nav>
+          <ul class="socials site-footer__socials" aria-label="Xarxes socials">
+            <!-- @slot:socials -->
+          </ul>
+        </div>
+        <div class="site-footer__bottom">
+          <ul class="footer__legal" aria-label="Informació legal">
+            <!-- @slot:legal -->
+          </ul>
+          <p class="site-footer__copy">© <!-- @slot:year --> Anaïs Borràs. Tots els drets reservats.</p>
+        </div>
+        <p class="site-footer__credit">Disseny i desenvolupament web — Abril Rodríguez</p>
+      </div>
+    </footer>
+  </body>
+</html>

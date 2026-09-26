@@ -43,6 +43,22 @@ export const socials = (site) =>
     })
     .join('\n');
 
+// Contacte → «Si ets més de missatge directe»: només els canals amb dada real. Una xarxa sense URL no es mostra i el correu
+// només surt si `site.email` existeix (encara no n'hi ha cap de confirmat).
+const ARROW_UP_RIGHT =
+  '<svg class="contact-elsewhere__arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8.5 7H17v8.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
+
+export const channels = (site) => {
+  const list = site.socials.filter((s) => s.url).map((s) => ({ label: s.label, href: s.url, external: true }));
+  if (site.email) list.push({ label: 'Correu', href: `mailto:${site.email}`, external: false });
+  return list
+    .map(
+      (c) =>
+        `<li class="contact-elsewhere__item"><a class="contact-elsewhere__link" href="${esc(c.href)}"${c.external ? ' target="_blank" rel="noopener noreferrer"' : ''}><span class="contact-elsewhere__name">${esc(c.label)}</span>${ARROW_UP_RIGHT}${c.external ? `<span class="sr-only"> (s'obre en una pestanya nova)</span>` : ''}</a></li>`,
+    )
+    .join('\n');
+};
+
 export const legal = (site) => site.legal.map((l) => `<li><a class="footer__link" href="${esc(l.href)}">${esc(l.label)}</a></li>`).join('\n');
 
 export const instagramUrl = (site) => site.socials.find((s) => s.id === 'instagram').url;

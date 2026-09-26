@@ -1,0 +1,126 @@
+/* Pàgina /contacte, bloc 5: tancament. L'última frase de la web sobre lavanda (com el CTA final de Sobre mi): primer
+   parell en regular gran, una línia fina amb una estrella petita i, en contraposició, el segon parell en cursiva sagnat.
+   Tot en negre sobre lavanda (contrast alt). Amb .js-reveal (about-scroll.js) les línies apareixen una a una. */
+.contact-close {
+  background: var(--lavender);
+  color: var(--ink);
+}
+
+.contact-close__inner {
+  padding-block: clamp(5rem, 12vw, 12rem);
+}
+
+.contact-close__title,
+.contact-close__answer {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+}
+
+.contact-close__title {
+  font-size: clamp(2.75rem, 9.6vw, 9.6rem);
+  font-weight: 500;
+  line-height: 0.94;
+}
+
+.contact-close__line {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Línia fina amb una estrella al principi: separa la frase del seu contrapunt. */
+.contact-close__mark {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-block: clamp(2.5rem, 5vw, 5rem);
+}
+
+.contact-close__mark::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid rgba(17, 17, 17, 0.4);
+}
+
+.contact-close__star {
+  width: 1.1rem;
+  height: 1.1rem;
+  background: var(--ink);
+  -webkit-mask: var(--star-shape) center / 100% 100% no-repeat;
+  mask: var(--star-shape) center / 100% 100% no-repeat;
+}
+
+.contact-close__answer {
+  padding-left: calc((100% + clamp(1rem, 2vw, 2rem)) / 12 * 3);
+  font-size: clamp(2.25rem, 6.6vw, 7rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Aparició encadenada (només amb .js-reveal). */
+.js-reveal .contact-close__line {
+  opacity: 0;
+  transform: translateY(0.35em);
+  transition: opacity 0.9s ease, transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-reveal .contact-close__mark::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-reveal .contact-close__star {
+  opacity: 0;
+  transition: opacity 0.6s 0.4s ease;
+}
+
+.js-reveal .contact-close.is-visible .contact-close__line {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(var(--i) * 0.16s);
+}
+
+.js-reveal .contact-close.is-visible .contact-close__mark::after { transform: none; }
+.js-reveal .contact-close.is-visible .contact-close__star { opacity: 1; }
+
+@media (max-width: 900px) {
+  .contact-close__title { font-size: 10.4vw; }
+  .contact-close__answer { padding-left: 1.5rem; font-size: 9.6vw; }
+}
+
+/* Mòbil i tauleta (≤900 px): el final de la web no s'encongeix. Les frases es recomponen en línies més curtes i molt més grans:
+   «Potser / només és / una idea / ara mateix.» i «Les bones / converses / també / comencen així.» */
+@media (max-width: 900px) {
+  .contact-close__inner { padding-block: clamp(4.5rem, 22vw, 6rem); }
+  .contact-close__title { font-size: clamp(3rem, 16.4vw, 8.5rem); line-height: 0.95; }
+  .contact-close__line { white-space: normal; }
+  .contact-close__mark { margin-block: 2.5rem; }
+  .contact-close__answer { padding-left: 1.25rem; font-size: clamp(2.4rem, 12.4vw, 6.5rem); line-height: 1.02; }
+
+  /* Les dues línies del contrapunt es fonen en un sol flux per poder trencar-lo a «Les bones / converses també / comencen així.». */
+  .contact-close__answer .contact-close__line { display: contents; white-space: normal; }
+  .contact-close__w { display: inline-block; }
+
+  .js-reveal .contact-close__answer .contact-close__w {
+    opacity: 0;
+    transform: translateY(0.35em);
+    transition: opacity 0.9s ease, transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .js-reveal .contact-close.is-visible .contact-close__answer .contact-close__w {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(0.5s + var(--w) * 0.09s);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .contact-close__line,
+  .js-reveal .contact-close__w,
+  .js-reveal .contact-close__mark::after,
+  .js-reveal .contact-close__star {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}

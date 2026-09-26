@@ -1,0 +1,533 @@
+/* Pàgina /contacte, bloc 3: formulari plantejat com una entrevista. Cada pregunta és una fila entre línies fines (número i
+   pregunta a l'esquerra, resposta a la dreta), sense card ni ombra. Focus lavanda amb subratllat violeta; errors amb el
+   fúcsia només com a accent (línia i estrella) i el text en negre perquè es llegeixi bé. La lògica és a contact-form.js. */
+.contact-form__inner {
+  padding-block: var(--section-space);
+  border-top: 1px solid var(--line);
+}
+
+.contact-form__head {
+  margin-bottom: clamp(2rem, 4vw, 4rem);
+}
+
+.contact-form__form[hidden],
+.contact-form__done[hidden] {
+  display: none;
+}
+
+.contact-form__chip,
+.contact-form__submit,
+.contact-form__done-reset {
+  -webkit-tap-highlight-color: rgba(167, 156, 239, 0.35);
+}
+
+/* ---------- Files pregunta / resposta ---------- */
+.contact-form__row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 2rem);
+  align-items: baseline;
+  padding-block: clamp(1.5rem, 2.8vw, 2.75rem);
+  border-top: 1px solid var(--line-strong);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form__row--send {
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.contact-form__num {
+  grid-column: 1 / 2;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--violet-text);
+}
+
+/* Estrella petita darrere el número quan la pregunta ja té resposta (vegeu contact-form.js). */
+.contact-form__num::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0.6rem;
+  margin-left: 0;
+  background: var(--violet);
+  vertical-align: -0.05rem;
+  -webkit-mask: var(--star-shape) center / 100% 100% no-repeat;
+  mask: var(--star-shape) center / 100% 100% no-repeat;
+  opacity: 0;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), margin-left 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+.contact-form__row.is-filled .contact-form__num::after {
+  width: 0.6rem;
+  margin-left: 0.5rem;
+  opacity: 1;
+}
+
+.contact-form__q {
+  display: block;
+  grid-column: 2 / 7;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.2vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  transition: color 0.25s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-form__q--soft {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.contact-form__a {
+  grid-column: 7 / -1;
+  min-width: 0;
+}
+
+/* Passar-hi per sobre: la línia es tenyeix de lavanda, sense moure res (el moviment és només del focus). */
+@media (hover: hover) {
+  .contact-form__row:hover {
+    border-top-color: var(--lavender);
+  }
+}
+
+/* Fila activa (camp o etiqueta amb focus): la línia i la pregunta es tornen violeta i la pregunta avança una mica. */
+.contact-form__row:focus-within {
+  border-top-color: var(--violet);
+}
+
+.contact-form__row:focus-within .contact-form__q {
+  color: var(--violet);
+  transform: translateX(0.5rem);
+}
+
+/* ---------- Camps de text ---------- */
+.contact-form__input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.3em 0.35em 0.25em;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-form__input::placeholder {
+  /* --muted amb una mica de tinta: es manté discret però ≥ 4,5:1 fins i tot sobre el rentat lavanda del focus. */
+  color: color-mix(in srgb, var(--muted) 88%, var(--ink));
+  font-style: italic;
+  opacity: 1;
+}
+
+/* Focus: rentat lavanda i subratllat violeta de 2 px (el violeta dona el contrast que el lavanda sol no té). */
+.contact-form__input:focus {
+  outline: none;
+  background-color: var(--lavender-soft);
+  border-bottom-color: var(--violet);
+  box-shadow: 0 1px 0 0 var(--violet);
+}
+
+.contact-form__input:-webkit-autofill {
+  -webkit-text-fill-color: var(--ink);
+  box-shadow: 0 0 0 100px var(--paper) inset;
+}
+
+.contact-form__textarea {
+  min-height: 4.4em;
+  line-height: 1.3;
+  resize: none;
+  overflow: hidden;
+}
+
+/* ---------- Errors ---------- */
+.contact-form__input[aria-invalid='true'] {
+  border-bottom-color: var(--pink);
+  box-shadow: 0 1px 0 0 var(--pink);
+}
+
+.contact-form__error,
+.contact-form__status {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.contact-form__error:empty,
+.contact-form__status:empty {
+  display: none;
+}
+
+.contact-form__error::before,
+.contact-form__status::before {
+  content: '';
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--pink);
+  -webkit-mask: var(--star-shape) center / 100% 100% no-repeat;
+  mask: var(--star-shape) center / 100% 100% no-repeat;
+}
+
+.contact-form__error {
+  animation: about-fade 0.4s ease both;
+}
+
+.contact-form__status {
+  margin: 0 0 1rem;
+}
+
+/* ---------- Opcions: etiquetes seleccionables (radios reals amagats visualment) ---------- */
+.contact-form__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.75rem;
+}
+
+.contact-form__chip {
+  position: relative;
+  display: inline-flex;
+}
+
+.contact-form__chip input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-form__chip-text {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--ink);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+/* Estrella de la identitat que apareix en seleccionar. */
+.contact-form__chip-text::before {
+  content: '';
+  flex: none;
+  width: 0;
+  height: 0.7rem;
+  margin-right: 0;
+  background: var(--violet);
+  -webkit-mask: var(--star-shape) center / 100% 100% no-repeat;
+  mask: var(--star-shape) center / 100% 100% no-repeat;
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), margin-right 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .contact-form__chip:hover .contact-form__chip-text {
+    border-color: var(--violet);
+    background-color: var(--lavender-soft);
+    color: var(--violet-text);
+  }
+}
+
+/* Tàctil: en prémer, la mateixa resposta visual que el hover amb ratolí. */
+.contact-form__chip:active .contact-form__chip-text {
+  background-color: var(--lavender-soft);
+}
+
+.contact-form__chip input:checked + .contact-form__chip-text {
+  border-color: var(--ink);
+  background-color: var(--lavender);
+  color: var(--ink);
+}
+
+.contact-form__chip input:checked + .contact-form__chip-text::before {
+  width: 0.7rem;
+  margin-right: 0.6rem;
+}
+
+.contact-form__chip input:focus-visible + .contact-form__chip-text {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+}
+
+/* ---------- CTA ----------
+   Mateix llenguatge que .button--ink (negre, Inter versaleta, quadrat) però a l'amplada de la columna de resposta.
+   Hover/focus: el fons passa a violeta, apareix l'estrella lavanda davant l'etiqueta i la fletxa avança uns píxels. */
+.contact-form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  min-height: clamp(4.25rem, 5.6vw, 5.25rem);
+  padding: 1rem clamp(1.5rem, 2.6vw, 2.5rem);
+  border: 0;
+  border-radius: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-align: left;
+  text-transform: uppercase;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.contact-form__submit-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Estrella de la identitat: creix de 0 a la mida final davant l'etiqueta. */
+.contact-form__submit-label::before {
+  content: '';
+  flex: none;
+  width: 0;
+  height: 0.85rem;
+  margin-right: 0;
+  background: var(--lavender);
+  -webkit-mask: var(--star-shape) center / 100% 100% no-repeat;
+  mask: var(--star-shape) center / 100% 100% no-repeat;
+  opacity: 0;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), margin-right 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+.contact-form__submit .arrow {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+.contact-form__submit:active,
+.contact-form__submit:focus-visible,
+.contact-form__submit[aria-disabled='true'] {
+  background: var(--violet);
+  color: #fff;
+}
+
+.contact-form__submit:active .contact-form__submit-label::before,
+.contact-form__submit:focus-visible .contact-form__submit-label::before,
+.contact-form__submit[aria-disabled='true'] .contact-form__submit-label::before {
+  width: 0.85rem;
+  margin-right: 0.75rem;
+  opacity: 1;
+}
+
+.contact-form__submit:active .arrow,
+.contact-form__submit:focus-visible .arrow {
+  transform: translateX(6px);
+}
+
+@media (hover: hover) {
+  .contact-form__submit:hover {
+    background: var(--violet);
+    color: #fff;
+  }
+
+  .contact-form__submit:hover .contact-form__submit-label::before {
+    width: 0.85rem;
+    margin-right: 0.75rem;
+    opacity: 1;
+  }
+
+  .contact-form__submit:hover .arrow {
+    transform: translateX(6px);
+  }
+}
+
+.contact-form__submit[aria-disabled='true'] {
+  cursor: progress;
+}
+
+.contact-form__submit[aria-disabled='true'] .arrow {
+  opacity: 0.45;
+}
+
+/* Trampa anti-spam fora de pantalla. */
+.contact-form__hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- Estat d'èxit: «Ja ho tinc. / En parlem aviat.» com el parell regular + cursiva de Sobre mi ---------- */
+.contact-form__done {
+  padding-block: clamp(2rem, 4vw, 4rem);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  outline: none;
+}
+
+.contact-form__done-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 10.4vw, 12rem);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+.contact-form__done-line {
+  display: block;
+  animation: about-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contact-form__done-line--accent {
+  padding-left: clamp(1.5rem, 3vw, 4rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--violet);
+  animation-delay: 0.14s;
+}
+
+.contact-form__done-star {
+  display: inline-block;
+  width: 0.26em;
+  height: 0.26em;
+  margin-left: 0.14em;
+  background: var(--pink);
+  vertical-align: 0.6em;
+  -webkit-mask: var(--star-shape) center / 100% 100% no-repeat;
+  mask: var(--star-shape) center / 100% 100% no-repeat;
+  animation: contact-pop 0.9s 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.contact-form__done-reset {
+  margin-top: clamp(1.5rem, 3vw, 3rem);
+  padding: 0;
+  border-top: 0;
+  border-inline: 0;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+  animation: about-fade 0.9s 0.5s ease both;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .contact-form__row {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.75rem;
+  }
+
+  .contact-form__num,
+  .contact-form__q,
+  .contact-form__a { grid-column: 1; }
+
+  .contact-form__q { font-size: clamp(1.9rem, 8vw, 3rem); }
+  .contact-form__input { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .contact-form__row:focus-within .contact-form__q { transform: none; }
+  .contact-form__done-title { font-size: clamp(3.25rem, 16vw, 9rem); }
+}
+
+/* Mòbil (≤600 px): una columna pensada per a una sola mà. Preguntes grans i clares, camps de 3,5 rem d'alçada (mínim tàctil
+   còmode, i cos > 16 px perquè iOS no faci zoom), etiquetes que ocupen tota la fila i un CTA a tota l'amplada. */
+@media (max-width: 600px) {
+  .contact-form__inner { padding-block: clamp(3rem, 14vw, 4rem); }
+  .contact-form__head { margin-bottom: 1.5rem; }
+
+  .contact-form__row {
+    row-gap: 0.75rem;
+    padding-block: 1.75rem 2rem;
+  }
+
+  .contact-form__q { font-size: clamp(2rem, 9vw, 3rem); }
+
+  /* Sense subratllat en repòs (la fila ja té la seva línia): el camp és una zona lavanda molt suau, plana i sense vora. */
+  .contact-form__input {
+    min-height: 3.5rem;
+    padding: 0.55rem 0.85rem;
+    border-bottom: 2px solid transparent;
+    background-color: rgba(214, 208, 246, 0.3);
+    box-shadow: none;
+    font-size: clamp(1.4rem, 6.4vw, 1.9rem);
+  }
+
+  .contact-form__input:focus {
+    background-color: var(--lavender-soft);
+    box-shadow: none;
+  }
+
+  .contact-form__input[aria-invalid='true'] {
+    box-shadow: none;
+  }
+
+  .contact-form__textarea {
+    min-height: 9rem;
+    line-height: 1.35;
+  }
+
+  /* Etiquetes: quadrícula de dues columnes iguals (2 + 2 + 1), sense paraules comprimides ni files desiguals. */
+  .contact-form__chips {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .contact-form__chip:last-child { grid-column: 1 / -1; }
+
+  .contact-form__chip-text {
+    width: 100%;
+    justify-content: center;
+    min-height: 3.25rem;
+    padding: 0.7rem 0.75rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .contact-form__row--send { row-gap: 1rem; padding-bottom: 2.5rem; }
+
+  .contact-form__submit {
+    min-height: 4.75rem;
+    padding-inline: 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .contact-form__done { padding-block: 2.5rem; }
+  .contact-form__done-title { font-size: clamp(3.25rem, 16vw, 6.5rem); }
+  .contact-form__done-line--accent { padding-left: 1.25rem; }
+}
+
+/* Pantalles molt estretes (≤359 px): etiquetes una mica més compactes perquè «Col·laboració» càpiga a mitja columna. */
+@media (max-width: 359px) {
+  .contact-form__chip-text {
+    padding-inline: 0.5rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form__error,
+  .contact-form__done-line,
+  .contact-form__done-star,
+  .contact-form__done-reset { animation: none; }
+
+  .contact-form__row:focus-within .contact-form__q,
+  .contact-form__submit:hover .arrow,
+  .contact-form__submit:active .arrow,
+  .contact-form__submit:focus-visible .arrow { transform: none; }
+}

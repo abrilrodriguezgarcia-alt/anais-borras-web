@@ -24,9 +24,9 @@ const ZONES = [
   ['.card--sand .card__placeholder', 'light'],
   ['.card--lavender-soft .card__placeholder', 'lavender'],
   ['.card__placeholder', 'lavender'],
-  ['.button--ink', 'dark'],
+  ['.button--ink, .contact-form__submit', 'dark'],
   ['.button', 'lavender'],
-  ['.contact', 'lavender'],
+  ['.contact, .contact-hero__reply, .contact-close', 'lavender'],
   ['.hero__media, .about-hero__media, .about__media, .project-media, .video__frame, .social__link', 'media'],
 ];
 const DEFAULT_THEME = 'light';
