@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projectes — Anaïs Borràs</title>
+    <meta name="description" content="Periodisme, pòdcast, ràdio, creació de contingut i moderacions per connectar filosofia, actualitat i cultura contemporània." />
+    <meta property="og:title" content="Projectes — Anaïs Borràs" />
+    <meta property="og:description" content="Periodisme, pòdcast, ràdio, creació de contingut i moderacions per connectar filosofia, actualitat i cultura contemporània." />
+    <meta name="theme-color" content="#F4F1EB" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap"
+    />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contingut">Salta al contingut</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+          <span class="brand__line">Anaïs</span>
+          <span class="brand__line">Borràs</span>
+        </a>
+        <nav class="nav" aria-label="Navegació principal">
+          <ul class="nav__list">
+            <!-- @slot:nav -->
+          </ul>
+        </nav>
+        <ul class="socials" aria-label="Xarxes socials">
+          <!-- @slot:socials -->
+        </ul>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <!-- Hero (Fase 3). TODO: copy del titular proposat per al disseny; validar amb l'Anaïs.
+           Els descriptors de la línia inferior són tipus de feina, NO etiquetes personals. -->
+      <section class="projects-hero" aria-labelledby="projects-hero-title">
+        <div class="container projects-hero__inner">
+          <p class="eyebrow projects-hero__eyebrow">Projectes — Selecció</p>
+
+          <h1 class="projects-hero__title" id="projects-hero-title">
+            <span class="projects-hero__line">Coses que he fet</span>
+            <span class="projects-hero__line projects-hero__line--accent">perquè alguna cosa</span>
+            <span class="projects-hero__line">passés.</span>
+          </h1>
+
+          <div class="projects-hero__foot">
+            <p class="projects-hero__kinds">Periodisme <span class="star-sep" aria-hidden="true"></span> Converses <span class="star-sep" aria-hidden="true"></span> Cultura <span class="star-sep" aria-hidden="true"></span> Projectes</p>
+            <a class="link-arrow projects-hero__jump" href="#projecte-destacat">
+              Descobreix
+              <svg class="arrow arrow--down" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 4v16m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projecte destacat: el que té featured: true a src/data/projects.json (vegeu docs/PROJECTS-DATA.md). -->
+      <!-- @slot:projectsPage -->
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <a class="brand site-footer__brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+            <span class="brand__line">Anaïs</span>
+            <span class="brand__line">Borràs</span>
+          </a>
+          <nav class="site-footer__nav" aria-label="Navegació del peu de pàgina">
+            <ul class="footer__list">
+              <!-- @slot:nav -->
+            </ul>
+          </nav>
+          <ul class="socials site-footer__socials" aria-label="Xarxes socials">
+            <!-- @slot:socials -->
+          </ul>
+        </div>
+        <div class="site-footer__bottom">
+          <ul class="footer__legal" aria-label="Informació legal">
+            <!-- @slot:legal -->
+          </ul>
+          <p class="site-footer__copy">© <!-- @slot:year --> Anaïs Borràs. Tots els drets reservats.</p>
+        </div>
+        <p class="site-footer__credit">Disseny i desenvolupament web — Abril Rodríguez</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -63,3 +63,36 @@ Seccions "Com treballo": `public/images/anais/IMG_7272.jpg` (Pensar; blanc i neg
 Statement "Escoltar també és una manera de pensar" (`/sobre-mi`): `public/images/imatges/FeminismeZ.HEIC` (Anaïs al plató de FeminismeZ; és la mateixa foto de la targeta de FeminismeZ de la Home, amb un altre retall) → `src/assets/images/anais-escoltar-{1600,2400}.webp` (apaïsat 1,9:1) i `anais-escoltar-v-{800,1200}.webp` (vertical 4:5, mòbil). Material propi.
 
 Trajectòria (`/sobre-mi`): les fotografies del panell són les de `src/data/projects.json` (`/images/projects/*.webp`). Dades a `src/data/trajectory.json`; Seny i Ràbia, Pantube, Onada Feminista i Presentació/moderació no tenen fotografia (bloc tipogràfic) ni pàgina de projecte. Textos a partir de `docs/CONTENT.md`; validar amb Anaïs.
+
+## Franja «He col·laborat amb» — Generalitat de Catalunya
+
+| Element | Origen | URL | Fitxer | Estat de drets |
+|---|---|---|---|---|
+| Logo | web.gencat.cat (SVG del peu del web oficial: `/content/dam/webgencat/logos/Logo Generalitat de Catalunya.svg`) | https://web.gencat.cat/ca/inici/ | `public/images/logos/generalitat.svg` | Logo institucional. Versió monocroma tinta (`#111111`): l'original és blanc (per a fons vermell); només canvia el color de farciment, la geometria és idèntica. Context: Beca Propulsió (FeminismeZ). Confirmar ús amb la Generalitat si cal seguir el manual d'identitat. |
+
+## Projectes (`/projectes`) — fotografies afegides a la Fase 2
+
+Dades i estat de drets de cada imatge: `src/data/projects.json` (`rightsConfirmed`, `rightsNote`). Informe: `npm run check:projects`.
+
+| Fitxer web | Original | Ús | Estat de drets |
+|---|---|---|---|
+| `public/images/projects/feminismez-plato-dempeus.webp` (1200×1500, 4:5, tractament lleu: saturació −12 %, contrast +6 %) | `public/images/imatges/IMG_7811.JPG` (4284×5355) | Galeria de FeminismeZ; candidata a comparar amb la portada | **Pendent**: procedència i autoria no documentades. |
+| `public/images/projects/la-directa-carrer.webp` (1200×1500, 4:5, saturació −20 %, contrast +6 %) | `public/images/imatges/La Directa.JPG` (2602×3252) | Galeria de La Directa; candidata a comparar amb la portada | **Pendent** (decisió del client): no dependre'n per tancar el disseny. |
+
+Teatre Barcelona (`teatre-barcelona.webp`) també consta com a `rightsConfirmed: false`. La build de producció retira aquestes imatges de
+Projectes i esborra de `dist/` les que no fa servir cap altra pàgina. Atenció: la de Teatre Barcelona continua a la Home, que no passa per aquesta porta.
+
+### Portada de FeminismeZ a `/projectes` (Fase 3)
+
+`public/images/projects/feminismez-cover-{1200,1800,2400}.webp` (4:3): retall a tot l'ample (des del rètol fins a les mans, mateix enquadrament que
+la targeta de Home) de `public/images/imatges/FeminismeZ.HEIC` (fotografia vertical original, 4284×5712), amb el tractament lleu de la resta
+(saturació −12 %, contrast +6 %). Material propi (drets confirmats). Home i Sobre mi continuen fent servir `feminismez.webp` (960×720) via `home.image`.
+
+### Pòsters dels vídeos de FeminismeZ (Fase 7)
+
+`public/images/projects/feminismez-e01-poster.jpg` … `feminismez-e09-poster.jpg` (1280×720, JPG sense processar):
+miniatura oficial (`maxresdefault`) de cadascun dels 9 episodis publicats al canal de YouTube d'Anaïs Borràs
+(`youtube.com/@anaisborras`), un fotograma del propi vídeo — no material de tercers. `rightsConfirmed: true`.
+Dades a `src/data/projects.json` (`feminismez.videos`); vegeu la Fase 7 a `docs/PROJECTS-DATA.md` per a la llista
+completa (títol, convidada, durada) i la font (`youtube.com/@anaisborras/videos`).
+

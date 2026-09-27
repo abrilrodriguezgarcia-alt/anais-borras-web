@@ -3,5 +3,6 @@
   { "name": "RAC1", "variant": "sans-bold" },
   { "name": "Teatre Barcelona", "variant": "sans-caps" },
   { "name": "Pantube", "variant": "sans-semibold" },
-  { "name": "Onada Feminista", "variant": "serif" }
+  { "name": "Onada Feminista", "variant": "serif" },
+  { "name": "Generalitat de Catalunya", "note": "Beca Propulsió", "variant": "sans-semibold", "logo": "/images/logos/generalitat.svg", "logoWidth": 124, "logoHeight": 33 }
 ]

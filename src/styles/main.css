@@ -4,6 +4,10 @@
 @import './components/hero.css';
 @import './components/partners.css';
 @import './components/projects.css';
+@import './components/projects-page.css';
+@import './components/projects-hero.css';
+@import './components/projects-grid.css';
+@import './components/project-detail.css';
 @import './components/articles.css';
 @import './components/videos.css';
 @import './components/social.css';

@@ -1,50 +1,731 @@
 [
   {
     "id": "feminismez",
-    "name": "FeminismeZ",
+    "slug": "feminisme-z",
+    "order": 1,
+    "status": "published",
+    "featured": true,
+    "title": "FeminismeZ",
+    "entity": null,
+    "context": null,
+    "contextHeadline": "Un espai per parlar de feminismes sense embuts",
+    "contextBody": [
+      "FeminismeZ és un pòdcast i videopòdcast sobre feminismes, teoria queer i cultura contemporània: converses i entrevistes que van des de la violència masclista i la pressió estètica fins al ciberfeminisme, l'humor, l'amistat femenina o la consciència de classe."
+    ],
+    "year": null,
+    "role": null,
+    "participation": null,
+    "format": "Pòdcast i videopòdcast",
+    "categories": [
+      "audiovisual",
+      "converses"
+    ],
     "description": "Pòdcast i videopòdcast de feminismes, teoria queer i cultura contemporània.",
-    "href": "/projectes#feminismez",
-    "image": "/images/projects/feminismez.webp",
-    "imageWidth": 960,
-    "imageHeight": 720,
+    "size": "large",
+    "ratio": "4/3",
+    "image": {
+      "type": "image",
+      "src": "/images/projects/feminismez-cover-1800.webp",
+      "width": 1800,
+      "height": 1350,
+      "variants": [
+        {
+          "src": "/images/projects/feminismez-cover-1200.webp",
+          "width": 1200
+        },
+        {
+          "src": "/images/projects/feminismez-cover-1800.webp",
+          "width": 1800
+        },
+        {
+          "src": "/images/projects/feminismez-cover-2400.webp",
+          "width": 2400
+        }
+      ],
+      "alt": "Anaïs Borràs asseguda al plató de FeminismeZ, sota el rètol de neó i entre micròfons.",
+      "original": "/images/imatges/FeminismeZ.HEIC",
+      "rightsConfirmed": true,
+      "rightsNote": "Material propi aportat al projecte (docs/ASSETS.md). Retall 4:3 (a tot l'ample, des del rètol fins a les mans) de la fotografia vertical original.",
+      "position": "center 24%"
+    },
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/images/projects/feminismez-plato-dempeus.webp",
+        "width": 1200,
+        "height": 1500,
+        "alt": "Anaïs Borràs dempeus al plató de FeminismeZ, amb una camisa rosa, davant del rètol de neó i dels micròfons.",
+        "original": "/images/imatges/IMG_7811.JPG",
+        "rightsConfirmed": false,
+        "rightsNote": "Procedència i autoria no documentades: confirmar amb l'Anaïs abans de publicar. Candidata a comparar amb la portada."
+      }
+    ],
+    "video": null,
+    "links": [],
+    "externalUrl": null,
+    "funding": [
+      {
+        "name": "Beca Propulsió",
+        "organization": "Departament de Política Lingüística — Generalitat de Catalunya",
+        "year": null
+      }
+    ],
     "logo": "/images/logo feminisme z/Logo_FZ_lletres-blanques.png",
-    "logoPosition": "bottom-left",
-    "overlay": "editorial"
+    "home": {
+      "overlay": "editorial",
+      "logoPosition": "bottom-left",
+      "image": {
+        "type": "image",
+        "src": "/images/projects/feminismez.webp",
+        "width": 960,
+        "height": 720,
+        "alt": "Anaïs Borràs asseguda al plató de FeminismeZ, sota el rètol de neó i entre micròfons.",
+        "original": "/images/imatges/FeminismeZ.HEIC",
+        "rightsConfirmed": true,
+        "rightsNote": "Material propi aportat al projecte (docs/ASSETS.md)."
+      }
+    },
+    "videos": [
+      {
+        "title": "feminismes amb Laura Llevadot",
+        "episode": "E01",
+        "videoId": "YjVoDRJ96_o",
+        "duration": "25:29",
+        "poster": {
+          "type": "image",
+          "src": "/images/projects/feminismez-e01-poster.jpg",
+          "width": 1280,
+          "height": 720,
+          "alt": "Fotograma del capítol 1 de FeminismeZ: feminismes amb Laura Llevadot.",
+          "original": null,
+          "rightsConfirmed": true,
+          "rightsNote": "Fotograma oficial (miniatura) del propi vídeo, publicat al canal de YouTube d'Anaïs Borràs."
+        }
+      },
+      {
+        "title": "queer amb Samantha Hudson",
+        "episode": "E02",
+        "videoId": "_Vpv0_UDjnE",
+        "duration": "32:42",
+        "poster": {
+          "type": "image",
+          "src": "/images/projects/feminismez-e02-poster.jpg",
+          "width": 1280,
+          "height": 720,
+          "alt": "Fotograma del capítol 2 de FeminismeZ: queer amb Samantha Hudson.",
+          "original": null,
+          "rightsConfirmed": true,
+          "rightsNote": "Fotograma oficial (miniatura) del propi vídeo, publicat al canal de YouTube d'Anaïs Borràs."
+        }
+      },
+      {
+        "title": "violència masclista amb Carla Galeote",
+        "episode": "E03",
+        "videoId": "cZbqNnQv9qM",
+        "duration": "19:32",
+        "poster": {
+          "type": "image",
+          "src": "/images/projects/feminismez-e03-poster.jpg",
+          "width": 1280,
+          "height": 720,
+          "alt": "Fotograma del capítol 3 de FeminismeZ: violència masclista amb Carla Galeote.",
+          "original": null,
+          "rightsConfirmed": true,
+          "rightsNote": "Fotograma oficial (miniatura) del propi vídeo, publicat al canal de YouTube d'Anaïs Borràs."
+        }
+      },
+      {
+        "title": "pressió estètica amb Cèlia Espanya",
+        "episode": "E04",
+        "videoId": "vC9wUuatekk",
+        "duration": "30:13",
+        "poster": {
+          "type": "image",
+          "src": "/images/projects/feminismez-e04-poster.jpg",
+          "width": 1280,
+          "height": 720,
+          "alt": "Fotograma del capítol 4 de FeminismeZ: pressió estètica amb Cèlia Espanya.",
+          "original": null,
+          "rightsConfirmed": true,
+          "rightsNote": "Fotograma oficial (miniatura) del propi vídeo, publicat al canal de YouTube d'Anaïs Borràs."
+        }
+      },
+      {
+        "title": "ciberfeminisme amb Alba Lafarga",
+        "episode": "E05",
+        "videoId": "riOuQl6SfiI",
+        "duration": "26:41",
+        "poster": {
+          "type": "image",
+          "src": "/images/projects/feminismez-e05-poster.jpg",
+          "width": 1280,
+          "height": 720,
+          "alt": "Fotograma del capítol 5 de FeminismeZ: ciberfeminisme amb Alba Lafarga.",
+          "original": null,
+          "rightsConfirmed": true,
+          "rightsNote": "Fotograma oficial (miniatura) del propi vídeo, publicat al canal de YouTube d'Anaïs Borràs."
+        }
+      },
+      {
+        "title": "humor amb Maria Rovira",
+        "episode": "E06",
+        "videoId": "Lhli4HklU38",
+        "duration": "21:20",
+        "poster": {
+          "type": "image",
+          "src": "/images/projects/feminismez-e06-poster.jpg",
+          "width": 1280,
+          "height": 720,
+          "alt": "Fotograma del capítol 6 de FeminismeZ: humor amb Maria Rovira.",
+          "original": null,
+          "rightsConfirmed": true,
+          "rightsNote": "Fotograma oficial (miniatura) del propi vídeo, publicat al canal de YouTube d'Anaïs Borràs."
+        }
+      },
+      {
+        "title": "amistat femenina amb Ania Posada i Abril Rodríguez",
+        "episode": "E07",
+        "videoId": "R1tNJRI6xjg",
+        "duration": "23:18",
+        "poster": {
+          "type": "image",
+          "src": "/images/projects/feminismez-e07-poster.jpg",
+          "width": 1280,
+          "height": 720,
+          "alt": "Fotograma del capítol 7 de FeminismeZ: amistat femenina amb Ania Posada i Abril Rodríguez.",
+          "original": null,
+          "rightsConfirmed": true,
+          "rightsNote": "Fotograma oficial (miniatura) del propi vídeo, publicat al canal de YouTube d'Anaïs Borràs."
+        }
+      },
+      {
+        "title": "consciència de classe amb Noelia Ramírez",
+        "episode": "E08",
+        "videoId": "mhyo2f0zIks",
+        "duration": "22:06",
+        "poster": {
+          "type": "image",
+          "src": "/images/projects/feminismez-e08-poster.jpg",
+          "width": 1280,
+          "height": 720,
+          "alt": "Fotograma del capítol 8 de FeminismeZ: consciència de classe amb Noelia Ramírez.",
+          "original": null,
+          "rightsConfirmed": true,
+          "rightsNote": "Fotograma oficial (miniatura) del propi vídeo, publicat al canal de YouTube d'Anaïs Borràs."
+        }
+      },
+      {
+        "title": "periodisme feminista amb Mar Bermúdez",
+        "episode": "E09",
+        "videoId": "9vREAG0Oyd8",
+        "duration": "24:38",
+        "poster": {
+          "type": "image",
+          "src": "/images/projects/feminismez-e09-poster.jpg",
+          "width": 1280,
+          "height": 720,
+          "alt": "Fotograma del capítol 9 de FeminismeZ: periodisme feminista amb Mar Bermúdez.",
+          "original": null,
+          "rightsConfirmed": true,
+          "rightsNote": "Fotograma oficial (miniatura) del propi vídeo, publicat al canal de YouTube d'Anaïs Borràs."
+        }
+      }
+    ],
+    "articles": [],
+    "fundingNote": "Les Beques Propulsió són unes beques de la Generalitat de Catalunya (Departament de Política Lingüística) que promouen la professionalització de creadors de contingut digital en català. FeminismeZ n'és el projecte beneficiari.",
+    "heroVariant": "immersive",
+    "articlesVariant": null
   },
   {
     "id": "la-directa",
-    "name": "La Directa",
+    "slug": "la-directa",
+    "order": 2,
+    "status": "published",
+    "featured": false,
+    "title": "La Directa",
+    "entity": null,
+    "context": null,
+    "contextHeadline": "Periodisme escrit amb mirada feminista i de memòria",
+    "contextBody": [
+      "A La Directa hi ha publicat articles i entrevistes sobre cultura, feminismes, memòria i violències masclistes, amb un to d'anàlisi que va més enllà de l'actualitat immediata."
+    ],
+    "year": null,
+    "role": "Periodista",
+    "participation": null,
+    "format": "Periodisme escrit",
+    "categories": [
+      "periodisme"
+    ],
     "description": "Articles, entrevistes i anàlisi sobre cultura, feminismes i memòria.",
-    "href": "/projectes#la-directa",
-    "image": "/images/projects/la-directa.webp",
-    "imageWidth": 960,
-    "imageHeight": 1030,
+    "size": "vertical",
+    "ratio": "4/5",
+    "image": {
+      "type": "image",
+      "src": "/images/projects/la-directa.webp",
+      "width": 960,
+      "height": 1030,
+      "alt": "Anaïs Borràs amb un micròfon de La Directa durant un directe en una manifestació.",
+      "original": "/images/imatges/IMG_1140.PNG",
+      "rightsConfirmed": true,
+      "rightsNote": "Material propi. Confirmar que es pot publicar la imatge de les persones del fons (docs/ASSETS.md)."
+    },
+    "gallery": [
+      {
+        "type": "image",
+        "src": "/images/projects/la-directa-carrer.webp",
+        "width": 1200,
+        "height": 1500,
+        "alt": "Anaïs Borràs amb un micròfon de La Directa en un carrer, amb el cel blau al fons.",
+        "original": "/images/imatges/La Directa.JPG",
+        "rightsConfirmed": false,
+        "rightsNote": "Drets d'ús pendents de confirmar (decisió del client). No dependre'n per tancar el disseny. Candidata a comparar amb la portada."
+      }
+    ],
+    "video": null,
+    "links": [],
+    "externalUrl": null,
+    "funding": [],
     "logo": "/images/logos/la-directa-blanc.svg",
-    "logoPosition": "bottom-left",
-    "overlay": "editorial"
+    "home": {
+      "overlay": "editorial",
+      "logoPosition": "bottom-left"
+    },
+    "articles": [
+      {
+        "title": "Ser provida és defensar una proposta perquè les vides siguin sostenibles al llarg del temps",
+        "publication": "La Directa",
+        "url": "https://directa.cat/ser-provida-es-defensar-una-proposta-perque-les-vides-siguin-sostenibles-al-llarg-del-temps/",
+        "date": "2026-07-10",
+        "category": "Salut",
+        "excerpt": "Entrevista sobre l'avortament, l'estigma que encara l'envolta i el moviment provida.",
+        "image": null
+      },
+      {
+        "title": "“S'ha de fer tot el que es pugui perquè els nens i nenes no acabin sent uns Josep Maries”",
+        "publication": "La Directa",
+        "url": "https://directa.cat/sha-de-fer-tot-el-que-es-pugui-perque-els-nens-i-nenes-no-acabin-sent-uns-josep-maries/",
+        "date": "2026-06-26",
+        "category": "Cultura",
+        "excerpt": "Entrevista sobre una amistat i un projecte de parella nascuts a l’escola de música del barri.",
+        "image": null
+      },
+      {
+        "title": "“Ser queer té molt a veure amb abraçar la monstruositat”",
+        "publication": "La Directa",
+        "url": "https://directa.cat/ser-queer-veure-abracar-monstruositat/",
+        "date": "2026-05-15",
+        "category": "LGBTIQ+",
+        "excerpt": "Entrevista amb Samantha Hudson, en el marc del videopòdcast FeminismeZ.",
+        "image": null
+      },
+      {
+        "title": "Més que paraules",
+        "publication": "La Directa",
+        "url": "https://directa.cat/mes-que-paraules/",
+        "date": "2026-04-27",
+        "category": "Directa 20 anys",
+        "excerpt": "Sobre com ha canviat la narració audiovisual com a eina periodística en vint anys.",
+        "image": null
+      },
+      {
+        "title": "D’Aristòtil a Carrie Bradshaw, amistat en temps de malestar",
+        "publication": "La Directa",
+        "url": "https://directa.cat/daristotil-a-carrie-bradshaw-amistat-en-temps-de-malestar/",
+        "date": "2026-03-30",
+        "category": "Ideari",
+        "excerpt": "Una reflexió sobre l'amistat a partir de Plató i la cultura pop contemporània.",
+        "image": null
+      },
+      {
+        "title": "Víctimes del Patronato de la Mujer critiquen la política de “gestos” i reclamen investigar-ne els abusos",
+        "publication": "La Directa",
+        "url": "https://directa.cat/victimes-del-patronato-de-la-mujer-critiquen-la-politica-de-gestos-i-reclamen-a-les-institucions-mesures-per-la-reparacio/",
+        "date": "2026-03-20",
+        "category": "Memòria",
+        "excerpt": "Reportatge sobre el reconeixement estatal de les víctimes del franquisme del Patronato de la Mujer.",
+        "image": null
+      },
+      {
+        "title": "Preguntes que solen faltar davant dels feminicidis",
+        "publication": "La Directa",
+        "url": "https://directa.cat/preguntes-que-solen-faltar-davant-dels-feminicidis/",
+        "date": "2025-11-25",
+        "category": "Violència masclista",
+        "excerpt": "Anàlisi, amb Meritxell Rigol, de les preguntes que no es fan davant d'un feminicidi.",
+        "image": null
+      },
+      {
+        "title": "“Si algú del públic pensa ‘No sé què són, però m’agrada’, ho estam fent molt bé”",
+        "publication": "La Directa",
+        "url": "https://directa.cat/si-algu-del-public-pensa-no-se-que-son-pero-magrada-ho-estam-fent-molt-be/",
+        "date": "2025-07-18",
+        "category": "Cultura",
+        "excerpt": "Entrevista sobre la manca de referents LGTBIQ+ en català i la creació musical pròpia.",
+        "image": null
+      },
+      {
+        "title": "“Decréixer no ha d’implicar austeritat sinó formes diferents d’abundància i satisfacció”",
+        "publication": "La Directa",
+        "url": "https://directa.cat/decreixer-no-ha-dimplicar-austeritat-sino-formes-diferents-dabundancia-i-satisfaccio/",
+        "date": "2025-07-14",
+        "category": "L'entrevista",
+        "excerpt": "Entrevista amb el filòsof Kohei Saito sobre decreixement i ecologia.",
+        "image": null
+      },
+      {
+        "title": "El franquisme va deixar tantes víctimes que nosaltres som les últimes de la llista",
+        "publication": "La Directa",
+        "url": "https://directa.cat/el-franquisme-va-deixar-tantes-victimes-que-nosaltres-som-les-ultimes-de-la-llista/",
+        "date": "2025-06-09",
+        "category": "Repressió",
+        "excerpt": "Testimoni sobre l’internament en centres del franquisme per a \"menors no conformes\".",
+        "image": null
+      },
+      {
+        "title": "“Per què no vas fer res?”: 'Sucia' descarrega el pes de la violència sexual",
+        "publication": "La Directa",
+        "url": "https://directa.cat/per-que-no-vas-fer-res-sucia-descarrega-el-pes-de-la-violencia-sexual/",
+        "date": "2025-02-06",
+        "category": "Cultura",
+        "excerpt": "Sobre l’espectacle ‘Sucia’ de Bàrbara Mestanza i el pes social de la violència sexual.",
+        "image": null
+      },
+      {
+        "title": "“Molt pocs jutges són capaços d’incorporar una visió amb perspectiva de gènere”",
+        "publication": "La Directa",
+        "url": "https://directa.cat/molt-pocs-jutges-son-capacos-dincorporar-una-visio-amb-perspectiva-de-genere/",
+        "date": "2024-12-09",
+        "category": "Suplement",
+        "excerpt": "Entrevista sobre violència masclista i perspectiva de gènere a la justícia.",
+        "image": null
+      },
+      {
+        "title": "El masclisme, premiat a les xarxes: quins factors l’alimenten i com combatre-ho?",
+        "publication": "La Directa",
+        "url": "https://directa.cat/el-masclisme-premiat-a-les-xarxes-quins-factors-lalimenten-i-com-combatre-ho/",
+        "date": "2024-11-25",
+        "category": "Masclisme",
+        "excerpt": "Reportatge sobre el masclisme a les xarxes socials i com combatre’l.",
+        "image": null
+      }
+    ],
+    "videos": [],
+    "fundingNote": null,
+    "heroVariant": "split",
+    "articlesVariant": null
   },
   {
     "id": "rac1",
-    "name": "RAC1",
+    "slug": "rac1",
+    "order": 3,
+    "status": "published",
+    "featured": false,
+    "title": "RAC1",
+    "entity": null,
+    "context": "Ens ho prenem amb Filosofia",
+    "contextHeadline": "Filosofia aplicada a l’actualitat, en petites dosis",
+    "contextBody": [
+      "A “Ens ho prenem amb Filosofia”, dins de La Primera Pedra de RAC1, l'Anaïs Borràs hi intervé habitualment amb peces breus que miren l'actualitat —des de l'educació fins a la moda o la salut— des de la filosofia."
+    ],
+    "year": null,
+    "role": "Col·laboradora habitual",
+    "participation": "Una de les veus habituals del segment: hi ha intervingut de manera recurrent al llarg de diversos mesos, amb peces pròpies sobre temes d'actualitat.",
+    "format": "Ràdio",
+    "categories": [
+      "audiovisual"
+    ],
     "description": "Ens ho prenem amb Filosofia: la filosofia aplicada a qüestions contemporànies.",
-    "href": "/projectes#rac1",
-    "image": "/images/projects/rac1.webp",
-    "imageWidth": 900,
-    "imageHeight": 940,
+    "size": "medium",
+    "ratio": "1/1",
+    "image": {
+      "type": "image",
+      "src": "/images/projects/rac1.webp",
+      "width": 900,
+      "height": 940,
+      "alt": "Anaïs Borràs a l'estudi de RAC1, amb auriculars i micròfon, davant del rètol de la ràdio.",
+      "original": "/images/imatges/RAC 1.PNG",
+      "rightsConfirmed": true,
+      "rightsNote": "Material propi. L'original sembla una captura de pantalla (1021×1816): substituir-lo per la foto original quan arribi."
+    },
+    "gallery": [],
+    "video": null,
+    "links": [
+      {
+        "label": "La fotografia del dolor",
+        "url": "https://omny.fm/shows/la-primera-pedra-prenem-filosofia/filosofia-amb-ana-s-borr-s-la-fotografia-del-dolor",
+        "type": "audio"
+      },
+      {
+        "label": "Desobediència civil per l'educació pública",
+        "url": "https://omny.fm/shows/la-primera-pedra-prenem-filosofia/filosofia-amb-ana-s-borr-s-desobedi-ncia-civil-per-leducaci-p-blica",
+        "type": "audio"
+      },
+      {
+        "label": "La salut de les dones",
+        "url": "https://omny.fm/shows/la-primera-pedra-prenem-filosofia/filosofia-amb-ana-s-borr-s-la-salut-de-les-dones",
+        "type": "audio"
+      },
+      {
+        "label": "La moda",
+        "url": "https://omny.fm/shows/la-primera-pedra-prenem-filosofia/filosofia-amb-ana-s-borr-s-la-moda",
+        "type": "audio"
+      }
+    ],
+    "externalUrl": null,
+    "funding": [],
     "logo": "/images/logos/rac1.svg",
-    "logoPosition": "bottom-left",
-    "overlay": "editorial"
+    "home": {
+      "overlay": "editorial",
+      "logoPosition": "bottom-left"
+    },
+    "articles": [],
+    "videos": [],
+    "fundingNote": null,
+    "heroVariant": null,
+    "articlesVariant": null
   },
   {
     "id": "teatre-barcelona",
-    "name": "Teatre Barcelona",
+    "slug": "teatre-barcelona",
+    "order": 4,
+    "status": "published",
+    "featured": false,
+    "title": "Teatre Barcelona",
+    "entity": null,
+    "context": "Revista de Teatre Barcelona",
+    "contextHeadline": "Teatre amb mirada social i de gènere",
+    "contextBody": [
+      "Als seus articles a la revista de Teatre Barcelona, l'Anaïs Borràs ha escrit sobre el poder i el patriarcat, la violència intragènere, la cultura de la cancel·lació i el teatre polític i social a Barcelona."
+    ],
+    "year": null,
+    "role": "Col·laboradora de la revista",
+    "participation": null,
+    "format": "Col·laboracions escrites",
+    "categories": [
+      "cultura"
+    ],
     "description": "Cultura i arts escèniques amb mirada social.",
-    "href": "/projectes#teatre-barcelona",
-    "image": "/images/projects/teatre-barcelona.webp",
-    "imageWidth": 960,
-    "imageHeight": 720,
+    "size": "medium",
+    "ratio": "4/3",
+    "image": {
+      "type": "image",
+      "src": "/images/projects/teatre-barcelona.webp",
+      "width": 960,
+      "height": 720,
+      "alt": "Escena de «Fantàstic Ramon» amb diversos intèrprets al voltant d'un cotxet de nadó, sobre un escenari fosc.",
+      "original": "https://www.teatrebarcelona.com/wp-content/uploads/2024/06/TEATRE-BARCELONA-Fantastic-Ramon-5.jpg",
+      "rightsConfirmed": false,
+      "rightsNote": "Fotografia de tercers (article «El teatre com a eina de transformació social»). Verificar drets d'ús abans de publicar (docs/ASSETS.md)."
+    },
+    "gallery": [],
+    "video": null,
+    "links": [],
+    "externalUrl": null,
+    "funding": [],
     "logo": "/images/logos/teatre-barcelona-blanc.svg",
-    "logoPosition": "bottom-left",
-    "overlay": "soft"
+    "home": {
+      "overlay": "soft",
+      "logoPosition": "bottom-left"
+    },
+    "articles": [
+      {
+        "title": "‘L’autora’ desafia els mecanismes de poder del patriarcat",
+        "publication": "Teatre Barcelona",
+        "url": "https://www.teatrebarcelona.com/revista/lautora-desafia-els-mecanismes-de-poder-del-patriarcat",
+        "date": "2026-04-17",
+        "category": null,
+        "excerpt": "L'escena teatral contemporània viu un moment de canvi en què cada vegada més dones ocupen espais de creació i qüestionen les dinàmiques heretades.",
+        "image": null
+      },
+      {
+        "title": "Bàrbara Mestanza qüestiona la cultura de la cancel·lació",
+        "publication": "Teatre Barcelona",
+        "url": "https://www.teatrebarcelona.com/revista/barbara-mestanza-questiona-la-cultura-de-la-cancellacio",
+        "date": "2026-01-09",
+        "category": null,
+        "excerpt": "Entrevista amb la directora, dramaturga i protagonista de l’obra sobre la culpa que sostenim estructuralment.",
+        "image": null
+      },
+      {
+        "title": "‘Ragazzo’ torna per recordar allò que el poder vol que oblidem",
+        "publication": "Teatre Barcelona",
+        "url": "https://www.teatrebarcelona.com/revista/ragazzo-torna-per-recordar-allo-que-el-poder-vol-que-oblidem",
+        "date": "2025-08-28",
+        "category": null,
+        "excerpt": "Deu anys després de la seva estrena, aquesta peça de teatre polític torna al Teatre Eòlia.",
+        "image": null
+      },
+      {
+        "title": "‘Analphabet’, un fantasma romàntic ferit per la violència intragènere",
+        "publication": "Teatre Barcelona",
+        "url": "https://www.teatrebarcelona.com/revista/analphabet-un-fantasma-romantic-ferit-per-la-violencia-intragenere",
+        "date": "2025-06-20",
+        "category": null,
+        "excerpt": "Un fantasma visita les parelles quan l’amor es converteix en abús.",
+        "image": null
+      },
+      {
+        "title": "El teatre com a eina de transformació social",
+        "publication": "Teatre Barcelona",
+        "url": "https://www.teatrebarcelona.com/revista/el-teatre-com-a-eina-de-transformacio-social",
+        "date": "2025-04-08",
+        "category": null,
+        "excerpt": "Dues entitats amb tasca social presenten les seves noves propostes teatrals a Barcelona.",
+        "image": null
+      }
+    ],
+    "videos": [],
+    "fundingNote": null,
+    "heroVariant": null,
+    "articlesVariant": "cultural"
+  },
+  {
+    "id": "seny-i-rabia",
+    "slug": "seny-i-rabia",
+    "order": 5,
+    "status": "published",
+    "featured": false,
+    "title": "Seny i Ràbia",
+    "entity": null,
+    "context": null,
+    "contextHeadline": null,
+    "contextBody": null,
+    "year": null,
+    "role": null,
+    "participation": null,
+    "format": "Pòdcast",
+    "categories": [
+      "audiovisual"
+    ],
+    "description": "Responsabilitat reproductiva, antifeminisme, límits de l'humor i desinformació.",
+    "size": "small",
+    "ratio": null,
+    "image": null,
+    "gallery": [],
+    "video": null,
+    "links": [],
+    "externalUrl": null,
+    "funding": [],
+    "logo": null,
+    "home": null,
+    "articles": [],
+    "videos": [],
+    "fundingNote": null,
+    "heroVariant": null,
+    "articlesVariant": null
+  },
+  {
+    "id": "pantube",
+    "slug": "pantube",
+    "order": 6,
+    "status": "published",
+    "featured": false,
+    "title": "Pantube",
+    "entity": null,
+    "context": null,
+    "contextHeadline": "Un col·lectiu de creadores compromès",
+    "contextBody": [
+      "Pantube és un col·lectiu assembleari de creació digital -sense líders- que combat la desinformació i els discursos d'extrema dreta a les xarxes socials."
+    ],
+    "year": null,
+    "role": "Membre del col·lectiu",
+    "participation": null,
+    "format": "Col·lectiu de creadors de contingut",
+    "categories": [
+      "altres"
+    ],
+    "description": "Participació dins l'ecosistema de creadors digitals en català.",
+    "size": "small",
+    "ratio": null,
+    "image": null,
+    "gallery": [],
+    "video": null,
+    "links": [
+      {
+        "label": "La criminalització de les organitzacions palestines",
+        "url": "https://www.instagram.com/reels/Dau9_trssCM/",
+        "type": "video"
+      }
+    ],
+    "externalUrl": "https://pantube.tv/anais-borras/",
+    "funding": [],
+    "logo": null,
+    "home": null,
+    "articles": [],
+    "videos": [],
+    "fundingNote": null,
+    "heroVariant": null,
+    "articlesVariant": null
+  },
+  {
+    "id": "onada-feminista",
+    "slug": "onada-feminista",
+    "order": 7,
+    "status": "published",
+    "featured": false,
+    "title": "Onada Feminista",
+    "entity": null,
+    "context": null,
+    "contextHeadline": null,
+    "contextBody": null,
+    "year": null,
+    "role": "Col·laboradora",
+    "participation": null,
+    "format": null,
+    "categories": [
+      "altres"
+    ],
+    "description": "Part de la meva trajectòria comunicativa.",
+    "size": "small",
+    "ratio": null,
+    "image": null,
+    "gallery": [],
+    "video": null,
+    "links": [],
+    "externalUrl": null,
+    "funding": [],
+    "logo": null,
+    "home": null,
+    "articles": [],
+    "videos": [],
+    "fundingNote": null,
+    "heroVariant": null,
+    "articlesVariant": null
+  },
+  {
+    "id": "presentacio-moderacio",
+    "slug": "presentacio-moderacio",
+    "order": 8,
+    "status": "published",
+    "featured": false,
+    "title": "Presentació i moderació",
+    "entity": null,
+    "context": null,
+    "contextHeadline": null,
+    "contextBody": null,
+    "year": null,
+    "role": null,
+    "participation": null,
+    "format": "Actes i converses",
+    "categories": [
+      "moderacio",
+      "converses"
+    ],
+    "description": "Presentar, moderar i entrevistar; conduir converses i actes.",
+    "size": "small",
+    "ratio": null,
+    "image": null,
+    "gallery": [],
+    "video": null,
+    "links": [],
+    "externalUrl": null,
+    "funding": [],
+    "logo": null,
+    "home": null,
+    "articles": [],
+    "videos": [],
+    "fundingNote": null,
+    "heroVariant": null,
+    "articlesVariant": null
   }
 ]

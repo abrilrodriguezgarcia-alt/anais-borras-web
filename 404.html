@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pàgina no trobada — Anaïs Borràs</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#F4F1EB" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap"
+    />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contingut">Salta al contingut</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+          <span class="brand__line">Anaïs</span>
+          <span class="brand__line">Borràs</span>
+        </a>
+        <nav class="nav" aria-label="Navegació principal">
+          <ul class="nav__list">
+            <!-- @slot:nav -->
+          </ul>
+        </nav>
+        <ul class="socials" aria-label="Xarxes socials">
+          <!-- @slot:socials -->
+        </ul>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <section class="not-found" aria-labelledby="not-found-title">
+        <div class="container not-found__inner">
+          <p class="eyebrow">Error 404</p>
+          <h1 class="not-found__title" id="not-found-title">Aquesta pàgina no existeix.</h1>
+          <p class="not-found__text">Pot ser que l'adreça hagi canviat o que el projecte encara no estigui publicat.</p>
+          <div class="not-found__actions">
+            <a class="button" href="<!-- @slot:base -->projectes/">
+              Veure els projectes
+              <svg class="arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+            <a class="link-arrow" href="<!-- @slot:base -->">Tornar a l'inici</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <a class="brand site-footer__brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+            <span class="brand__line">Anaïs</span>
+            <span class="brand__line">Borràs</span>
+          </a>
+          <nav class="site-footer__nav" aria-label="Navegació del peu de pàgina">
+            <ul class="footer__list">
+              <!-- @slot:nav -->
+            </ul>
+          </nav>
+          <ul class="socials site-footer__socials" aria-label="Xarxes socials">
+            <!-- @slot:socials -->
+          </ul>
+        </div>
+        <div class="site-footer__bottom">
+          <ul class="footer__legal" aria-label="Informació legal">
+            <!-- @slot:legal -->
+          </ul>
+          <p class="site-footer__copy">© <!-- @slot:year --> Anaïs Borràs. Tots els drets reservats.</p>
+        </div>
+        <p class="site-footer__credit">Disseny i desenvolupament web — Abril Rodríguez</p>
+      </div>
+    </footer>
+  </body>
+</html>

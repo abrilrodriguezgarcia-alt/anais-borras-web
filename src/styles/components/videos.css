@@ -34,6 +34,16 @@
   transform: scale(1.015);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .video__thumb {
+    transition: none;
+  }
+
+  .video__frame:hover .video__thumb {
+    transform: none;
+  }
+}
+
 /* El botó ocupa tot el frame (àrea clicable gran); el cercle és la part visible. */
 .video__play {
   position: absolute;

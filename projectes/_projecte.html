@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{project.title}} — Anaïs Borràs</title>
+    <meta name="description" content="{{project.description}}" />
+    <meta property="og:title" content="{{project.title}} — Anaïs Borràs" />
+    <meta property="og:description" content="{{project.description}}" />
+    <meta name="theme-color" content="#F4F1EB" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap"
+    />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contingut">Salta al contingut</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+          <span class="brand__line">Anaïs</span>
+          <span class="brand__line">Borràs</span>
+        </a>
+        <nav class="nav" aria-label="Navegació principal">
+          <ul class="nav__list">
+            <!-- @slot:nav -->
+          </ul>
+        </nav>
+        <ul class="socials" aria-label="Xarxes socials">
+          <!-- @slot:socials -->
+        </ul>
+      </div>
+    </header>
+
+    <main id="contingut">
+      <!-- Motlle de les fitxes individuals: vegeu scripts/vite-project-pages.js i docs/PROJECTS-DATA.md. -->
+      {{project.content}}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__main">
+          <a class="brand site-footer__brand" href="<!-- @slot:base -->" aria-label="Anaïs Borràs — inici">
+            <span class="brand__line">Anaïs</span>
+            <span class="brand__line">Borràs</span>
+          </a>
+          <nav class="site-footer__nav" aria-label="Navegació del peu de pàgina">
+            <ul class="footer__list">
+              <!-- @slot:nav -->
+            </ul>
+          </nav>
+          <ul class="socials site-footer__socials" aria-label="Xarxes socials">
+            <!-- @slot:socials -->
+          </ul>
+        </div>
+        <div class="site-footer__bottom">
+          <ul class="footer__legal" aria-label="Informació legal">
+            <!-- @slot:legal -->
+          </ul>
+          <p class="site-footer__copy">© <!-- @slot:year --> Anaïs Borràs. Tots els drets reservats.</p>
+        </div>
+        <p class="site-footer__credit">Disseny i desenvolupament web — Abril Rodríguez</p>
+      </div>
+    </footer>
+  </body>
+</html>

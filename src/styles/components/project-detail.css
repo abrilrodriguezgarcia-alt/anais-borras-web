@@ -1,0 +1,721 @@
+/* /projectes/:slug — Fase 5: ProjectDetailPage.
+   Seccions independents que només apareixen amb informació real (vegeu scripts/projects-render.js): Hero, Context,
+   Participació, Material, Enllaços, Següent projecte. Mateix sistema que la resta (tokens, Newsreader + Inter,
+   línies fines, sense ombres ni border-radius); l'única variació de fons és --paper-deep a Material, ja existent. */
+
+.project-detail__top {
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.project-detail__back {
+  margin: 0;
+}
+
+/* ---------- 01. Hero ---------- */
+/* A sobre l'altra (text ple ample, visual a sota): diferent de l'obertura del destacat de /projectes (costat a
+   costat), perquè no hi competeixi. Més informatiu: número, categoria, nom, entradeta i totes les metadades juntes. */
+.project-hero {
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.project-hero__inner {
+  padding-top: clamp(1.5rem, 3vw, 3rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.project-hero__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+}
+
+.project-hero__num {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--violet-text);
+}
+
+.project-hero__category {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.project-hero__title {
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.project-hero__lead {
+  max-width: 42ch;
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.project-hero__inner .project-meta {
+  margin-top: 1.5rem;
+  max-width: 32rem;
+}
+
+.project-hero__visual {
+  aspect-ratio: var(--ratio, 4 / 3);
+  max-height: 85vh;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.project-hero__frame,
+.project-hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- 01b. Variants de Hero (Fase 8) ---------- */
+/* Mateixos marges, tipografia i metadades a les 4 variants; només canvia la relació text/visual. `heroVariant`
+   (scripts/projects.js) tria «immersive» o «split»; sense visual real, sempre cau aquí baix a «text». */
+
+/* D — Tipogràfica (sense visual real): Teatre Barcelona en producció + els 4 projectes sense fotografia encara.
+   Es fa «molt forta» (briefing, §8) amb una mida més gran i una estrella d'accent, no amb més decoració. */
+.project-hero--text .project-hero__title {
+  font-size: clamp(3rem, 8vw, 7rem);
+}
+
+.project-hero--text .project-hero__head {
+  position: relative;
+}
+
+.project-hero--text .project-hero__num::before {
+  content: '';
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-right: 0.5em;
+  vertical-align: -0.05em;
+  background: var(--violet);
+  -webkit-mask: var(--star-shape) center / 100% 100% no-repeat;
+  mask: var(--star-shape) center / 100% 100% no-repeat;
+}
+
+/* B — Immersiva (p. ex. FeminismeZ): visual a sang de fons de tot el hero, degradat + text clar a sobre.
+   Composició més «atrevida» reservada a un projecte amb molta energia audiovisual (briefing §4/§9). */
+/* L'`aspect-ratio` viu al bloc de text (`__inner`), no al `<header>`: és un mínim preferit, no un límit dur —
+   si el contingut real (metadades incloses) necessita més alçada, el bloc creix i el fons el segueix (cap tall
+   ni text amagat). A mòbil, la mateixa proporció que la variant apilada (4:3 real); només a partir de 700px es
+   torna més cinematogràfica (16:9). Encara així cal `image.position` quan el subjecte no és al centre
+   (docs/ASSETS.md, briefing §16). */
+.project-hero--immersive {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-hero--immersive .project-hero__bg {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  z-index: 0;
+}
+
+.project-hero--immersive .project-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-hero--immersive .project-hero__tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.82) 0%, rgba(17, 17, 17, 0.35) 45%, rgba(17, 17, 17, 0.08) 75%);
+  pointer-events: none;
+}
+
+.project-hero--immersive .project-hero__inner {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: var(--ratio, 4 / 3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2rem, 4.5vw, 3.5rem);
+  color: var(--paper);
+}
+
+@media (min-width: 700px) {
+  .project-hero--immersive .project-hero__inner {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.project-hero--immersive .project-hero__num,
+.project-hero--immersive .project-hero__category {
+  color: var(--lavender);
+}
+
+.project-hero--immersive .project-hero__lead {
+  color: rgba(244, 241, 235, 0.85);
+}
+
+.project-hero--immersive .project-hero__inner .project-meta dt {
+  color: rgba(244, 241, 235, 0.7);
+}
+
+/* A — Costat a costat (p. ex. La Directa): to editorial, la fotografia acompanya sense dominar. */
+@media (min-width: 900px) {
+  .project-hero--split .project-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .project-hero--split .project-hero__visual {
+    margin: 0;
+  }
+}
+
+/* ---------- 02. Context ---------- */
+.project-context {
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.project-context__inner {
+  max-width: 42rem;
+}
+
+.project-context__headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-style: italic;
+  color: var(--violet);
+  line-height: 1.25;
+}
+
+.project-context__body {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+/* Nota marginal (Fase 8): a partir de 900px, l'etiqueta de secció (Context, Beca…) passa a una columna estreta
+   a l'esquerra en lloc d'un <h2> amagat — així el text no queda «illa» flotant amb tot l'ample sobrant al costat
+   (briefing §21) sense haver d'eixamplar el paràgraf més enllà del que es llegeix bé (§10). Reutilitzat per
+   Context i Beca/finançament; Participació ja té el seu propi grid de 2 columnes de contingut real. */
+@media (min-width: 900px) {
+  .project-context__inner,
+  .project-funding__inner {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    column-gap: clamp(2rem, 4vw, 3rem);
+    max-width: none;
+  }
+
+  .project-section__label {
+    padding-top: 0.2em;
+  }
+
+  .project-section__body {
+    max-width: 42rem;
+  }
+}
+
+/* ---------- 03. Participació de l'Anaïs ---------- */
+/* Composició editorial (frase gran + explicació), no una llista amb icones. Cap dels 8 projectes en té contingut
+   encara: `participation` és null a tots (role sense confirmar); es manté preparada per quan n'hi hagi. */
+.project-participation {
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.project-participation__inner {
+  display: grid;
+  gap: 1.25rem 3rem;
+}
+
+.project-participation__lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.project-participation__text {
+  max-width: 34rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+@media (min-width: 800px) {
+  .project-participation__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+/* ---------- 03b. Selecció de vídeos (Fase 7) ---------- */
+/* Vídeos propis de l'Anaïs (p. ex. episodis de FeminismeZ): mateix embed «lite» que Material (pòster + Play
+   explícit), però en llista pròpia perquè quedi clar que és el projecte, no material relacionat. */
+.project-videos {
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.project-videos__list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: clamp(1.25rem, 2vw, 2rem);
+}
+
+/* Ritme (briefing §4/§7): el primer episodi trenca la graella uniforme en lloc de repetir 9 targetes idèntiques. */
+@media (min-width: 700px) {
+  .project-videos__item:first-child {
+    grid-column: span 2;
+  }
+}
+
+/* Una mica més d'energia que el 1.015 per defecte de .video__frame:hover (videos.css): reaprofita la mateixa
+   transition, només n'accentua l'escala per a aquesta secció. Guarda pròpia de prefers-reduced-motion perquè és
+   l'única d'aquest fitxer que toca aquest hover (l'1.015 per defecte no en té, però és preexistent i no és
+   d'aquesta fase — vegeu l'informe final). */
+@media (hover: hover) {
+  .project-videos__video:hover .video__thumb {
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-videos__video:hover .video__thumb {
+    transform: none;
+  }
+}
+
+.project-videos__caption {
+  margin: 0.6rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.project-videos__episode {
+  margin-right: 0.4em;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet-text);
+}
+
+.project-videos__duration {
+  margin-left: 0.6em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 03c. Arxiu d'articles (Fase 7) ---------- */
+/* Arxiu periodístic, no una graella de cards: tipografia, data i línies fines fan tot el treball visual.
+   Agrupat per any només quan n'hi ha de diversos (projectArticles a scripts/projects-render.js). */
+.project-articles-section {
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.project-articles__group + .project-articles__group {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.project-articles__year {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--violet);
+}
+
+.project-articles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 46rem;
+}
+
+.project-articles__item {
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  border-top: 1px solid var(--line);
+}
+
+.project-articles__item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+/* El número (01, 02…) és gran i secundari (briefing §17): situat al costat del titular, no una etiqueta petita.
+   Només al tractament per defecte: el «cultural» no té `.project-articles__num` (un sol fill, `__body`, que ha
+   d'ocupar tot l'ample — no calen columnes). */
+@media (min-width: 700px) {
+  .project-articles:not(.project-articles--cultural) .project-articles__item {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    column-gap: 1.5rem;
+  }
+
+  .project-articles__num {
+    padding-top: 0.15em;
+  }
+}
+
+.project-articles__num {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-style: italic;
+  line-height: 1;
+  color: var(--line-strong);
+}
+
+.project-articles__meta {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.project-articles__title {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.project-articles__excerpt {
+  margin: 0.5rem 0 0;
+  max-width: 38ch;
+  color: var(--muted);
+}
+
+.project-articles__link {
+  display: inline-flex;
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+/* Tractament «cultural» (Teatre Barcelona, articlesVariant): sense numeració, titulars en cursiva (com el
+   programa d'una obra), meta sense versaletes, més aire entre peces — menys tècnic que l'arxiu de La Directa. */
+.project-articles--cultural .project-articles__item {
+  padding-block: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.project-articles--cultural .project-articles__meta {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+
+.project-articles--cultural .project-articles__title {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------- 04. Material / Resultat ---------- */
+/* Únic canvi de fons de tota la fitxa (--paper-deep, ja existent): separa el context llegit del material visual. */
+.project-material {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  background: var(--paper-deep);
+  border-top: 1px solid var(--line);
+}
+
+.project-material__video {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.project-material .video__frame {
+  background: var(--ink);
+}
+
+/* Retícula adaptativa: cada <li> declara el seu pes via --gallery-col/--gallery-row (calculats per
+   scripts/projects-render.js segons el nombre real d'assets, no una posició fixa). Mateix mecanisme de grid dens
+   que la retícula de /projectes (projects-grid.css), reaprofitat aquí amb un altre vocabulari de mides. */
+.project-gallery {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-flow: row dense;
+  grid-auto-rows: minmax(13rem, auto);
+  gap: clamp(1rem, 1.6vw, 1.5rem);
+}
+
+.project-gallery__item {
+  grid-column: span var(--gallery-col, 12);
+  grid-row: span var(--gallery-row, 1);
+}
+
+.project-gallery__fig {
+  position: relative;
+  height: 100%;
+  aspect-ratio: var(--ratio, 4 / 3);
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+.project-gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-gallery__item--video .video__frame {
+  height: 100%;
+}
+
+@media (max-width: 699px) {
+  .project-gallery__item {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+/* ---------- 04b. Beca / finançament (Fase 7) ---------- */
+.project-funding {
+  padding-block: clamp(1.75rem, 3.5vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.project-funding__inner {
+  max-width: 40rem;
+}
+
+.project-funding__text {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+}
+
+/* ---------- 05. Enllaços relacionats ---------- */
+.project-links-section {
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.project-detail__subtitle {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.project-links {
+  margin-top: 1rem;
+}
+
+.project-links__item {
+  border-bottom: 1px solid var(--line);
+}
+
+.project-links__link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  padding-block: 0.85rem;
+  transition: color 0.2s ease;
+}
+
+.project-links__link:hover,
+.project-links__link:focus-visible {
+  color: var(--violet-text);
+}
+
+.project-links__link .arrow {
+  margin-left: auto;
+}
+
+.project-links__link:hover .arrow,
+.project-links__link:focus-visible .arrow {
+  transform: translateX(4px);
+}
+
+.project-links__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 8.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--violet-text);
+}
+
+/* Marcador estàtic de tipus «àudio» (mai una forma d'ona real — vegeu AUDIO_ICON a projects-render.js). */
+.audio-icon {
+  flex: none;
+  color: var(--violet-text);
+}
+
+.project-links__label {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.project-links__external {
+  margin: 1.5rem 0 0;
+}
+
+/* ---------- 06. Següent projecte (obligatori) ---------- */
+.project-next {
+  border-top: 1px solid var(--line);
+}
+
+.project-next__link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  min-height: clamp(20rem, 42vw, 30rem);
+  background: var(--ink);
+}
+
+.project-next__visual {
+  position: absolute;
+  inset: 0;
+}
+
+.project-next__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Mateix degradat editorial que les targetes de projecte de la Home (projects.css): enfosqueix prou la franja
+   inferior perquè el text sigui llegible sense tapar la imatge. */
+.project-next__tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.15) 45%, transparent 75%);
+  pointer-events: none;
+}
+
+.project-next__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: clamp(20rem, 42vw, 30rem);
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--paper);
+}
+
+.project-next__label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lavender);
+}
+
+.project-next__num {
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--lavender);
+}
+
+.project-next__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+/* Categoria (context o format del projecte següent): una segona línia discreta, no competeix amb el titular. */
+.project-next__category {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: rgba(244, 241, 235, 0.75);
+}
+
+.project-next__link--text .project-next__category {
+  color: var(--muted);
+}
+
+.project-next__title .arrow {
+  transition: transform 0.25s ease;
+}
+
+/* Sense imatge: bloc només tipogràfic, ink sobre paper (com .feature--text). */
+.project-next__link--text {
+  background: var(--paper);
+}
+
+.project-next__link--text .project-next__inner {
+  color: var(--ink);
+}
+
+.project-next__link--text .project-next__label,
+.project-next__link--text .project-next__num {
+  color: var(--violet-text);
+}
+
+@media (hover: hover) {
+  .project-next__link:hover .project-next__img {
+    transform: scale(1.03);
+  }
+
+  .project-next__link:hover .project-next__title .arrow {
+    transform: translateX(6px);
+  }
+}
+
+.project-next__link:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: -4px;
+}
+
+@media (max-width: 699px) {
+  .project-next__title {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-next__img {
+    transition: none;
+  }
+
+  .project-next__link:hover .project-next__img,
+  .project-next__link:hover .project-next__title .arrow {
+    transform: none;
+  }
+}

@@ -1,0 +1,84 @@
+/* /projectes/:slug i 404 — peces compartides entre el llistat, el destacat i la fitxa individual (project-detail.css).
+   Només tokens existents i cap animació nova. */
+
+/* Marca de vídeo quan la portada és el pòster d'un vídeo. */
+.project-cover__play {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.85);
+}
+
+.project-cover__play::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  border-style: solid;
+  border-width: 0.4rem 0 0.4rem 0.65rem;
+  border-color: transparent transparent transparent #fff;
+  transform: translate(-50%, -50%);
+}
+
+/* ProjectMeta: compartit per ProjectCard, FeaturedProject i el hero de la fitxa individual. */
+.project-meta {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.9rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.project-meta__row {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.project-meta dt {
+  flex: none;
+  min-width: 4rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.project-meta dd {
+  margin: 0;
+}
+
+/* 404 */
+.not-found__inner {
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
+
+.not-found__title {
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.not-found__text {
+  max-width: 34rem;
+  color: var(--muted);
+}
+
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 2rem;
+  margin-top: 0.75rem;
+}

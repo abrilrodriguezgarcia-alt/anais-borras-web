@@ -1,0 +1,319 @@
+/* /projectes — Fase 3: hero editorial + projecte destacat.
+   Mateix sistema que la resta (tokens, Newsreader + Inter, línies fines, corba d'animació, cursor). Més escala i més fotografia,
+   no més decoració. Les animacions d'entrada només existeixen amb prefers-reduced-motion: no-preference: sense això (o sense JS)
+   tot és visible d'entrada. */
+
+/* ---------- Hero ---------- */
+.projects-hero__inner {
+  display: flex;
+  flex-direction: column;
+  /* Alçada editorial, no 100vh: prou per ser un moment propi, i la imatge del destacat ja s'insinua a sota. */
+  min-height: clamp(28rem, 38vw, 38rem);
+  padding-top: clamp(2rem, 3.6vw, 4rem);
+  padding-bottom: clamp(1.25rem, 2vw, 2rem);
+}
+
+.projects-hero__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.projects-hero__title {
+  margin-top: clamp(1.25rem, 2.2vw, 2.25rem);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7.8vw, 9rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* Espai mínim entre el titular i la línia quan l'alçada mínima del hero no en sobra. */
+.projects-hero__title {
+  margin-bottom: clamp(1.75rem, 3vw, 3rem);
+}
+
+.projects-hero__line {
+  display: block;
+}
+
+/* Contrapunt: la frase del mig en cursiva, lila (--violet, com els accents de Sobre mi) i sagnada. */
+.projects-hero__line--accent {
+  padding-left: clamp(1.5rem, 9vw, 11rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--violet);
+}
+
+.projects-hero__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 2rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.projects-hero__kinds {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.projects-hero__jump:active .arrow--down,
+.projects-hero__jump:focus-visible .arrow--down {
+  transform: translateY(4px);
+}
+
+@media (hover: hover) {
+  .projects-hero__jump:hover .arrow--down {
+    transform: translateY(4px);
+  }
+}
+
+/* ---------- Projecte destacat ---------- */
+/* Poc espai sobre la imatge: el canvi de hero a projecte ha de ser natural i la imatge s'ha d'insinuar al primer pintat. */
+.projects-featured {
+  padding-block: clamp(1.25rem, 2vw, 2rem) var(--section-space);
+}
+
+/* Escriptori: visual ≈ 68 % | informació ≈ 32 %. El número queda a dalt de la columna d'informació, alineat amb la vora
+   superior de la imatge; el nom i la resta baixen a peu de la imatge. */
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 2.15fr) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'visual num'
+    'visual body';
+  column-gap: clamp(1.5rem, 3vw, 3.5rem);
+}
+
+.feature__num {
+  grid-area: num;
+  align-self: start;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--ink);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--violet-text);
+}
+
+.feature__visual {
+  grid-area: visual;
+  display: block;
+}
+
+/* Proporció declarada al projecte (--ratio) i dimensions a l'<img>: l'espai es reserva abans de carregar (sense CLS). */
+.feature__frame {
+  position: relative;
+  display: block;
+  aspect-ratio: var(--ratio, 4 / 3);
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.feature__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Capa lila gairebé imperceptible; només s'il·lumina amb hover real. */
+.feature__tint {
+  position: absolute;
+  inset: 0;
+  background: var(--lavender);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.feature__body {
+  grid-area: body;
+  align-self: end;
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+  padding-top: 2rem;
+}
+
+.feature__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 4.9vw, 5.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  /* Un nom llarg d'una sola paraula no ha de desbordar la columna. */
+  max-width: 100%;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.feature__context {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.feature .project-meta {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.feature__text {
+  max-width: 34ch;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.feature__cta {
+  margin-top: 0.5rem;
+}
+
+/* Sense imatge ni pòster: composició només tipogràfica. */
+.feature--text {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'num'
+    'body';
+}
+
+.feature--text .feature__title {
+  font-size: clamp(3rem, 8vw, 9rem);
+}
+
+@media (hover: hover) {
+  .feature:hover .feature__img {
+    transform: scale(1.03);
+  }
+
+  .feature:hover .feature__tint {
+    opacity: 0.08;
+  }
+
+  .feature:hover .feature__cta {
+    color: var(--violet-text);
+    border-color: var(--violet-text);
+  }
+
+  .feature:hover .feature__cta .arrow {
+    transform: translateX(4px);
+  }
+}
+
+/* Tauleta i mòbil: composició vertical (número, imatge, informació) abans que la columna lateral quedi comprimida. */
+@media (max-width: 1099px) {
+  .feature {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-template-areas:
+      'num'
+      'visual'
+      'body';
+  }
+
+  .feature__num {
+    margin-bottom: 1rem;
+  }
+
+  .feature__body {
+    padding-top: 1.75rem;
+  }
+
+  .feature__title {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+  }
+}
+
+/* Tauleta ampla: el nom a l'esquerra i la resta de la informació a la dreta. */
+@media (min-width: 700px) and (max-width: 1099px) {
+  .feature__body {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .feature__body > * {
+    grid-column: 2;
+  }
+
+  .feature__body > .feature__title {
+    grid-column: 1;
+    grid-row: 1 / span 5;
+    font-size: clamp(3rem, 7vw, 5rem);
+  }
+}
+
+/* ---------- Mòbil ---------- */
+@media (max-width: 699px) {
+  .projects-hero__inner {
+    min-height: 0;
+    padding-top: 2rem;
+  }
+
+  .projects-hero__title {
+    font-size: clamp(2.5rem, 10.6vw, 4.25rem);
+    line-height: 0.96;
+  }
+
+  .projects-hero__line--accent {
+    padding-left: 0.75rem;
+  }
+
+  .projects-hero__title {
+    margin-bottom: 2.25rem;
+  }
+
+  .projects-hero__kinds {
+    max-width: 16rem;
+  }
+}
+
+/* ---------- Moviment: només amb preferència sense reducció ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .projects-hero__eyebrow,
+  .projects-hero__line {
+    animation: projects-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .projects-hero__line:nth-child(1) { animation-delay: 0.08s; }
+  .projects-hero__line:nth-child(2) { animation-delay: 0.16s; }
+  .projects-hero__line:nth-child(3) { animation-delay: 0.24s; }
+  .projects-hero__foot { animation: about-fade 1s 0.45s ease both; }
+
+  /* La imatge entra just després del titular (ja se n'insinua la part alta al primer pintat). */
+  .feature__frame {
+    animation: about-reveal 1.1s 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .feature__num {
+    animation: about-fade 1s 0.7s ease both;
+  }
+}
+
+@keyframes projects-rise {
+  from { opacity: 0; transform: translateY(0.2em); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature:hover .feature__img,
+  .feature:hover .feature__cta .arrow,
+  .projects-hero__jump:hover .arrow--down {
+    transform: none;
+  }
+
+  .feature__img,
+  .feature__tint {
+    transition: none;
+  }
+}

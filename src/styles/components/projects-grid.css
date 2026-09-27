@@ -1,0 +1,261 @@
+/* /projectes — retícula editorial + ProjectCard (Fase 4A: grid i targeta; Fase 4B: hover base; Fase 4C: pausa editorial).
+   El component es dissenya sol: cada targeta declara `data-size` (pes visual) i la imatge la seva `--ratio`
+   (via .project-cover, igual que el projecte destacat); aquest fitxer només interpreta aquests dos valors amb un
+   grid dens de 12 columnes. Afegir/canviar projectes a projects.json reordena i recomposa la retícula sense tocar
+   cap regla. Mateix sistema que la resta (tokens, Newsreader + Inter, línies fines, sense ombres ni border-radius). */
+
+.projects-rest {
+  padding-block: clamp(2rem, 4vw, 3.5rem) var(--section-space);
+}
+
+.projects-grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  /* `dense` deixa que l'algorisme ompli els buits: la sensació és lliure, però la retícula de 12 columnes es pot
+     intuir sempre. Els buits que queden («espais de respiració») són intencionals, no un error de composició. */
+  grid-auto-flow: row dense;
+  grid-auto-rows: minmax(15rem, auto);
+  gap: clamp(1.25rem, 2vw, 2rem);
+}
+
+/* Pes de cada targeta. Els parells sumen 12 columnes (vertical+medium+small, large+medium…); quan no encaixen
+   exactes, el `dense` flow els acomoda igualment més avall, sense trencar mai la retícula. */
+.projects-grid__item[data-size='large'] {
+  grid-column: span 8;
+  grid-row: span 2;
+}
+
+.projects-grid__item[data-size='wide'] {
+  grid-column: span 12;
+  grid-row: span 1;
+}
+
+.projects-grid__item[data-size='vertical'] {
+  grid-column: span 5;
+  grid-row: span 2;
+}
+
+.projects-grid__item[data-size='medium'] {
+  grid-column: span 4;
+  grid-row: span 1;
+}
+
+.projects-grid__item[data-size='small'] {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+/* ---------- ProjectCard ---------- */
+/* Mateix llenguatge que les targetes de la Home: fons de targeta, vora fina, sense ombra ni border-radius. */
+.project-card {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  transition: border-color 0.2s ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  border-color: var(--ink);
+}
+
+.project-card:focus-within {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+}
+
+.project-card__num {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  padding: 0.35rem 0.6rem;
+  background: var(--card-bg);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--violet-text);
+}
+
+/* Sense imatge (.project-card--text, com .feature--text al destacat): el número torna al flux. */
+.project-card--text .project-card__num {
+  position: static;
+  padding: 1.1rem 1.25rem 0;
+  background: none;
+}
+
+/* Portada: proporció pròpia (--ratio, definit per projectMedia); dimensions reservades, sense CLS. */
+.project-cover {
+  position: relative;
+  aspect-ratio: var(--ratio, 4 / 3);
+  overflow: hidden;
+  background: var(--paper-deep);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-cover__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Capa lila gairebé imperceptible; només s'il·lumina en hover real (mateix tractament que el destacat). */
+.project-cover__tint {
+  position: absolute;
+  inset: 0;
+  background: var(--lavender);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.project-card__body {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.1rem 1.25rem 1.1rem;
+}
+
+.project-card--text .project-card__body {
+  padding-top: 0.5rem;
+}
+
+.project-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 1.6vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+/* L'enllaç del títol cobreix tota la targeta (mateix patró que la Home i el projecte destacat). */
+.project-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.project-card__link:focus-visible {
+  outline: none;
+}
+
+.project-card__context {
+  margin-top: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.25;
+}
+
+.project-card .project-meta {
+  font-size: 0.75rem;
+}
+
+.project-card__text {
+  margin-top: 0.6rem;
+  margin-bottom: 1.1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.project-card .arrow {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.project-card:hover .arrow,
+.project-card:focus-within .arrow {
+  transform: translateX(4px);
+  color: var(--violet-text);
+}
+
+/* Hover base (Fase 4B): només amb dispositiu que realment té hover, com al projecte destacat. */
+@media (hover: hover) {
+  .project-card:hover .project-cover__img {
+    transform: scale(1.03);
+  }
+
+  .project-card:hover .project-cover__tint {
+    opacity: 0.08;
+  }
+}
+
+/* ---------- Pausa editorial ---------- */
+/* Frase breu entre dos blocs de la retícula; molt més discreta que el Hero (mateix parell serif + italic lila
+   que ja fan servir el Hero i «La meva mirada» de Sobre mi, a una escala molt més petita). Sense número, sense CTA:
+   no és un projecte més, és un respir. */
+.projects-pause {
+  max-width: 26rem;
+  margin-block: clamp(2.5rem, 6vw, 5rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.projects-pause__line {
+  display: block;
+}
+
+.projects-pause__line--accent {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--violet);
+}
+
+/* ---------- Responsive ---------- */
+/* Tauleta: menys aire de sobra entre columnes; els pesos grans es mantenen (8/12/5/4 hi cap igual). */
+@media (max-width: 1099px) {
+  .projects-grid {
+    grid-auto-rows: minmax(13rem, auto);
+  }
+}
+
+/* Tauleta petita/mitjana (mateix trencament que header.css/hero.css): 4 targetes `small` en una fila (3/12 cada
+   una) hi queden massa estretes per llegir amb aire; hi caben 2 per fila. Els pesos grans (vertical/medium) encara
+   hi tenen prou amplada i es mantenen. */
+@media (max-width: 900px) {
+  .projects-grid__item[data-size='small'] {
+    grid-column: span 6;
+  }
+}
+
+/* Mòbil: una sola columna, en `order` (el pes visual ja no aporta res amb tan poc ample). */
+@media (max-width: 699px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid__item,
+  .projects-grid__item[data-size='large'],
+  .projects-grid__item[data-size='wide'],
+  .projects-grid__item[data-size='vertical'],
+  .projects-grid__item[data-size='medium'],
+  .projects-grid__item[data-size='small'] {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-cover__img,
+  .project-cover__tint {
+    transition: none;
+  }
+
+  .project-card:hover .arrow,
+  .project-card:focus-within .arrow,
+  .project-card:hover .project-cover__img {
+    transform: none;
+  }
+}

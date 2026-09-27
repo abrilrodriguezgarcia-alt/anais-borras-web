@@ -1,7 +1,7 @@
 // Plantilles de les parts de la Home que s'alimenten de src/data/*.json.
 // Vite les injecta a index.html en build i en dev (vegeu vite.config.js).
 
-const esc = (value) =>
+export const esc = (value) =>
   String(value)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -18,8 +18,14 @@ const ICONS = {
     '<circle cx="12" cy="12" r="9.5"/><path d="M6.8 9.6c3.7-1.1 7.5-.8 10.5 1"/><path d="M7.4 13c3-.9 5.9-.5 8.4 1"/><path d="M8 16.2c2.4-.6 4.5-.4 6.5.8"/>',
 };
 
-const ARROW =
+export const ARROW =
   '<svg class="arrow" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
+
+// Enllaç intern amb el `base` de Vite, barra final a la ruta i àncora opcional (p. ex. /projectes#rac1 → base + projectes/#rac1).
+const internalUrl = (base, href) => {
+  const [path, hash] = href.split('#');
+  return `${base.replace(/\/$/, '')}${path.replace(/\/$/, '')}/${hash ? `#${hash}` : ''}`;
+};
 
 // Enllaços interns amb el `base` de Vite (p. ex. /anais-borras-web/ a GitHub Pages) i barra final (carpeta/index.html).
 // `current` és la ruta de la pàgina activa i es marca amb aria-current.
@@ -59,7 +65,8 @@ export const channels = (site) => {
     .join('\n');
 };
 
-export const legal = (site) => site.legal.map((l) => `<li><a class="footer__link" href="${esc(l.href)}">${esc(l.label)}</a></li>`).join('\n');
+export const legal = (site, base = '/') =>
+  site.legal.map((l) => `<li><a class="footer__link" href="${esc(internalUrl(base, l.href))}">${esc(l.label)}</a></li>`).join('\n');
 
 export const instagramUrl = (site) => site.socials.find((s) => s.id === 'instagram').url;
 
@@ -67,19 +74,22 @@ export const year = () => String(new Date().getFullYear());
 
 export const topics = (site) => site.topics.map((t) => `<li>${esc(t)}</li>`).join('\n');
 
-export const partners = (list) =>
+export const partners = (list, base = '/') =>
   list
-    .map(
-      (p) =>
-        // TODO: substituir el wordmark tipogràfic per l'SVG oficial (camp `logo`) quan existeixi.
-        `<li class="partners__item"><span class="wordmark wordmark--${esc(p.variant)}">${esc(p.name)}</span></li>`,
-    )
+    .map((p) => {
+      // TODO: substituir la resta de wordmarks tipogràfics per l'SVG oficial (camp `logo`) quan existeixi.
+      const alt = p.note ? `${p.name} — ${p.note}` : p.name;
+      const content = p.logo
+        ? `<img class="partners__logo" src="${esc(publicUrl(base, p.logo))}" alt="${esc(alt)}" width="${p.logoWidth}" height="${p.logoHeight}" loading="lazy" decoding="async">`
+        : `<span class="wordmark wordmark--${esc(p.variant)}">${esc(p.name)}${p.note ? `<span class="sr-only"> — ${esc(p.note)}</span>` : ''}</span>`;
+      return `<li class="partners__item">${content}</li>`;
+    })
     .join('\n');
 
 // Zona visual de cada targeta: fotografia real + overlay + logotip oficial (decoratius; el nom apareix a sota).
 // Origen i estat de drets de cada asset: docs/ASSETS.md.
 // Prefixa les rutes de public/ amb el base de Vite (p. ex. /anais-borras-web/ a GitHub Pages).
-const publicUrl = (base, path) => encodeURI(`${base.replace(/\/$/, '')}${path}`);
+export const publicUrl = (base, path) => encodeURI(`${base.replace(/\/$/, '')}${path}`);
 
 const projectMedia = (p, base) => {
   const logo = `<img class="project-media__logo" src="${esc(publicUrl(base, p.logo))}" alt="" loading="lazy" decoding="async">`;
@@ -99,7 +109,7 @@ export const projects = (list, base = '/') =>
       (p) => `<li class="card card--project">
   ${projectMedia(p, base)}
   <div class="card__body">
-    <h3 class="card__title"><a class="card__link" href="${esc(p.href)}">${esc(p.name)}</a></h3>
+    <h3 class="card__title"><a class="card__link" href="${esc(internalUrl(base, p.href))}">${esc(p.name)}</a></h3>
     <p class="card__text">${esc(p.description)}</p>
     ${ARROW}
   </div>
@@ -135,7 +145,7 @@ export const articles = (list) =>
     })
     .join('\n');
 
-const PLAY =
+export const PLAY =
   '<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="32" fill="currentColor" class="video__play-bg"/><path d="M26 20.5v23l19-11.5z" fill="#111"/></svg>';
 
 // Vídeos amb "lite embed": només thumbnail fins que l'usuari prem Play (vegeu src/scripts/lite-youtube.js).
@@ -178,12 +188,6 @@ export const instagram = (list, base = '/') =>
 </li>`;
     })
     .join('\n');
-
-// Enllaç intern amb el `base` de Vite, barra final a la ruta i àncora opcional (p. ex. /projectes#rac1 → base + projectes/#rac1).
-const internalUrl = (base, href) => {
-  const [path, hash] = href.split('#');
-  return `${base.replace(/\/$/, '')}${path.replace(/\/$/, '')}/${hash ? `#${hash}` : ''}`;
-};
 
 // Trajectòria (Sobre mi): fila editorial per experiència. Si hi ha un projecte relacionat a projects.json, la fila
 // n'és l'enllaç. `TODO` de contingut: Pantube, Onada Feminista i Presentació/moderació només tenen la descripció
